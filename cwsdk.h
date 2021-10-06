@@ -112,9 +112,9 @@
 #define register_callback(callback, func) \
 if (subscriptions->find(std::string(#callback)) == subscriptions->end())\
 {\
-	subscriptions->insert({ std::string(#callback), new std::vector<void*>() });\
+	subscriptions->insert({ std::string(#callback), std::vector<void*>() });\
 }\
-subscriptions->at(std::string(#callback))->push_back(func);\
+subscriptions->at(std::string(#callback)).push_back(func);\
 
 void* CWBase();
 void* CWOffset(size_t offset);
