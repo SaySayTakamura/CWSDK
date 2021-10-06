@@ -271,6 +271,7 @@ namespace cube {
             static cube::Creature* Create(__int64 id);
             cube::Creature* ctor(__int64* id);
 			float GetArmor();
+			static void OnGetArmor(cube::Creature* creature, float* armor) {}
 			float GetCritical(cube::Creature* other_creature = nullptr, bool other_creature_based_on_resistance = true);
 			float GetAttackPower(bool unk_bool = true);
 			float GetSpellPower(bool unk_bool = true);

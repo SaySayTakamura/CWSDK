@@ -142,7 +142,7 @@ class GenericMod {
         };
 
         // Used for registering to mod callbacks. The callbacks are defined in the CWSDK.
-        virtual void Initialize(std::map<std::string, std::vector<void*>*>* subscriptions) {}
+        virtual void Initialize(std::map<std::string, std::vector<void*>>* subscriptions) {}
 
         Priority OnChatPriority = NormalPriority;
         virtual int OnChat(std::wstring* message) { return 0; }
