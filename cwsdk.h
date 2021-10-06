@@ -7,6 +7,8 @@
 #include <dinput.h>
 #include <d3d11.h>
 #include <string>
+#include <map>
+#include <vector>
 
 #include "IDA/types.h"
 
@@ -107,6 +109,13 @@
 
 #include "steam/steam_api_common.h"
 
+#define register_callback(callback, func) \
+if (subscriptions->find(std::string(#callback)) == subscriptions->end())\
+{\
+	subscriptions->insert({ std::string(#callback), new std::vector<void*>() });\
+}\
+subscriptions->at(std::string(#callback))->push_back(func);\
+
 void* CWBase();
 void* CWOffset(size_t offset);
 
@@ -132,7 +141,8 @@ class GenericMod {
             VeryLowPriority = 4
         };
 
-        virtual void Initialize() {}
+        // Used for registering to mod callbacks. The callbacks are defined in the CWSDK.
+        virtual void Initialize(std::map<std::string, std::vector<void*>*>* subscriptions) {}
 
         Priority OnChatPriority = NormalPriority;
         virtual int OnChat(std::wstring* message) { return 0; }
