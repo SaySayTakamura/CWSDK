@@ -1,5 +1,5 @@
-#define MOD_MAJOR_VERSION 8
-#define MOD_MINOR_VERSION 1
+#define MOD_MAJOR_VERSION 7
+#define MOD_MINOR_VERSION 2
 
 #include "cwsdk.h"
 #include <windows.h>
