@@ -1,6 +1,7 @@
 #ifndef CWMODS_H
 #define CWMODS_H
 
+#define MODLOADER 0
 #define EXPORT extern "C" __declspec(dllexport) __declspec(noinline)
 
 #include <cstdint>
@@ -67,6 +68,7 @@
 #include "cube/Sprite.h"
 #include "cube/SpriteManager.h"
 #include "cube/SpriteWidget.h"
+#include "cube/StartMenuWidget.h"
 #include "cube/SystemWidget.h"
 #include "cube/TextFX.h"
 #include "cube/VoxelWidget.h"
@@ -109,13 +111,6 @@
 
 #include "steam/steam_api_common.h"
 
-#define register_callback(callback, func) \
-if (subscriptions->find(std::string(#callback)) == subscriptions->end())\
-{\
-	subscriptions->insert({ std::string(#callback), std::vector<void*>() });\
-}\
-subscriptions->at(std::string(#callback)).push_back(func);\
-
 void* CWBase();
 void* CWOffset(size_t offset);
 
@@ -124,12 +119,15 @@ EXPORT int ModMajorVersion();
 EXPORT int ModMinorVersion();
 
 void WriteByte(void* location, char val);
+
+#ifndef MODLOADER
 void WriteFarJMP(void* source, void* destination);
 
 __declspec(noinline) void* operator new(size_t size);
 __declspec(noinline) void* operator new[](size_t size);
 __declspec(noinline) void operator delete(void* ptr) noexcept;
 __declspec(noinline) void operator delete[](void* ptr) noexcept;
+#endif
 
 class GenericMod {
     public:

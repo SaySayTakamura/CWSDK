@@ -4,6 +4,7 @@
 #include "../IDA/types.h"
 #include "NamedObject.h"
 #include "../common/Matrix4.h"
+#include "../common/Vector2.h"
 
 namespace plasma {
     class Node;
@@ -21,6 +22,10 @@ namespace plasma {
             plasma::Node* node;
             _BYTE gap180[39];
             char end;
+
+            FloatVector2* GetSize(FloatVector2* vec);
+            float GetXSize();
+            float GetYSize();
         };
 }
 

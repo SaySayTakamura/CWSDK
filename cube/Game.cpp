@@ -102,6 +102,11 @@ void cube::Game::PlaySoundEffect(SoundEffect sound_id, float volume, float speed
     this->PlaySoundEffect(sound_id, this->global_camera_position, volume, speed, unkbool);
 }
 
+void cube::Game::MaybeLoadCharacter(int character_slot, cube::Creature* creature)
+{
+    ((void(*)(cube::Game*, int, cube::Creature*))CWOffset(0x9BB20))(this, character_slot, creature);
+}
+
 // This never worked properly, but I'll leave it here to demonstrate a little about how remeshing works
 /*void cube::Game::RemeshZone(int x, int y) {
     EnterCriticalSection(&world->zones_critical_section);

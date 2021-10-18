@@ -1,29 +1,40 @@
-#ifndef CUBE_BASEWIDGET_H
-#define CUBE_BASEWIDGET_H
+#pragma once
 
 #include "../plasma/Widget.h"
 #include "../plasma/ScalableFont.h"
+#include "../common/Vector2.h"
+#include "../common/RGBA.h"
+
 namespace cube {
-class BaseWidget : public plasma::Widget {
-    public:
-        plasma::ScalableFont* scalable_font;
-        float field_1B0;
-        float field_1B4;
-        float field_1B8;
-        float field_1BC;
-        float field_1C0;
-        float field_1C4;
-        float field_1C8;
-        float field_1CC;
-        float field_1D0;
-        float field_1D4;
-        float field_1D8;
-        float field_1DC;
-        float field_1E0;
-        float field_1E4;
-    };
+	enum TextPivot : int {
+		Left = 0,
+		Center,
+		Right
+	};
+
+	class BaseWidget : public plasma::Widget {
+	public:
+		plasma::ScalableFont* scalable_font;
+		float text_size;
+		float border_size;
+		float field_1B8;
+		float field_1BC;
+		float field_1C0;
+		FloatRGBA text_color;
+		FloatRGBA border_color;
+		TextPivot text_pivot;
+
+		float* DrawBaseWidgetText(FloatVector2* vec, std::wstring* text, float x, float y);
+		void SetTextColor(FloatRGBA* color);
+		void SetTextColor(char r, char g, char b, char a = 255);
+		void SetBorderColor(FloatRGBA* color);
+		void SetBorderColor(char r, char g, char b, char a = 255);
+		void SetTextSize(float size);
+		void SetBorderSize(float size);
+		void SetTextPivot(TextPivot pivot);
+		FloatVector2* GetRelativeMousePosition(FloatVector2* vec);
+	};
 }
 
 
 static_assert(sizeof(cube::BaseWidget) == 0x1E8, "cube::BaseWidget is not the correct size.");
-#endif // CUBE_BASEWIDGET_H

@@ -33,6 +33,7 @@ void WriteByte(void* location, char val){
     VirtualProtect(location, 1, dwOldProtection, &dwOldProtection);
 }
 
+#ifndef MODLOADER
 void WriteFarJMP(void* source, void* destination) {
     DWORD dwOldProtection;
     VirtualProtect(source, 14, PAGE_EXECUTE_READWRITE, &dwOldProtection);
@@ -50,10 +51,10 @@ void WriteFarJMP(void* source, void* destination) {
 }
 
 __declspec(noinline) void* operator new(size_t size) {
-    return ((void*(*)(size_t))CWOffset(0x392BAC))(size);
+    return ((void* (*)(size_t))CWOffset(0x392BAC))(size);
 }
 __declspec(noinline) void* operator new[](size_t size) {
-    return ((void*(*)(size_t))CWOffset(0x392BAC))(size);
+    return ((void* (*)(size_t))CWOffset(0x392BAC))(size);
 }
 
 __declspec(noinline) void operator delete(void* ptr) noexcept {
@@ -62,3 +63,4 @@ __declspec(noinline) void operator delete(void* ptr) noexcept {
 __declspec(noinline) void operator delete[](void* ptr) noexcept {
     ((void(*)(void*))CWOffset(0x392BE8))(ptr);
 }
+#endif // !1

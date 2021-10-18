@@ -5,6 +5,7 @@
 #include "../common/types.h"
 #include "NamedObject.h"
 #include "Vector.h"
+#include <list>
 
 namespace plasma {
     class Transformation;
@@ -14,8 +15,9 @@ namespace plasma {
         public:
             __int64 field_38;
             plasma::Node* parent;
-            __int64 field_48;
-            __int64 field_50;
+            std::list<plasma::Node*> nodes;
+            //__int64 field_48;
+            //__int64 field_50;
             __int64 field_58;
             plasma::Transformation* transformation;
             plasma::Display* display;

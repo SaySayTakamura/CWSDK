@@ -107,3 +107,8 @@ void cube::World::SetTime(int hour, int minute) {
 float cube::World::GetTime() {
     return this->state.time;
 }
+
+void cube::World::CW_2E0B50()
+{
+    ((void(*)(cube::World*))CWOffset(0x2E0B50))(this);
+}

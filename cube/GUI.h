@@ -25,14 +25,16 @@
 #include "OptionsWidget.h"
 #include "CharacterPreviewWidget.h"
 #include "CharacterStyleWidget.h"
+#include "StartMenuWidget.h"
 
 namespace cube {
     class Game;
+    class StartMenuWidget;
     class GUI {
         public:
             plasma::Node* startmenu_node;
             plasma::Node* startmenu_buttons_node;
-            void* start_menu_widget;
+            cube::StartMenuWidget* start_menu_widget;
             plasma::Node* character_selection_node;
             std::vector<cube::CharacterPreviewWidget*> character_preview_widgets;
             plasma::Node* button2_node;
@@ -200,6 +202,8 @@ namespace cube {
             char pad_05C8[8];
 
             void UpdateResolution(signed int width, signed int height);
+            void SomethingWithStartMenuGUISelection(cube::StartMenuWidget* widget, int x, int y);
+            void MouseUp(int btn); // int == cube::MouseButton
         };
 }
 static_assert(sizeof(cube::GUI) == 0x5D0, "cube::GUI is not the correct size.");

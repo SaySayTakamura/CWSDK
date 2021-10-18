@@ -8,6 +8,10 @@ namespace plasma {
     class D3D11Engine : public plasma::Engine {
         public:
             char field_290[840];
+
+            void MiddleMouseButtonUp();
+            void LeftMouseButtonUp();
+            void RightMouseButtonUp();
         };
 }
 

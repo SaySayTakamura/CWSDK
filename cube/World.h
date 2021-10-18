@@ -110,6 +110,8 @@ namespace cube {
             void SetTime(int ms);
             void SetTime(int hour, int minute);
             float GetTime();
+
+            void CW_2E0B50();
     };
 }
 

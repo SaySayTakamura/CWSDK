@@ -27,6 +27,11 @@
 #include <map>
 
 namespace cube {
+    enum MouseButton : int {
+        LeftMouseButton = 0,
+        RightMouseButton = 1,
+        MiddleMouseButton = 2,
+    };
     class Game {
         public:
             class CCallbackInternal_onP2PSessionRequest {
@@ -167,7 +172,6 @@ namespace cube {
                 sound_speech_next = 0x7B,
                 sound_tamers_whistle = 0x7C,
             };
-            
             virtual ~Game();
 
             cube::World* world;
@@ -296,6 +300,8 @@ namespace cube {
             void PrintMessage(const wchar_t* message, char red, char green, char blue);
             void PlaySoundEffect(SoundEffect sound_id, LongVector3& position, float volume=1.0, float speed=1.0, bool unkbool=true);
             void PlaySoundEffect(SoundEffect sound_id, float volume = 1.0, float speed = 1.0, bool unkbool = true);
+
+            void MaybeLoadCharacter(int character_slot, cube::Creature* creature);
         };
 }
 

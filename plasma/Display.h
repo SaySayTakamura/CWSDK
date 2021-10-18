@@ -20,6 +20,7 @@ namespace plasma {
 
             void SetVisibility(int frame, int value);
             int GetVisibility(int frame);
+            bool IsVisible();
             int GetFrameCount();
         };
 }
