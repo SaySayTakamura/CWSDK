@@ -6,6 +6,11 @@ float* cube::BaseWidget::DrawBaseWidgetText(FloatVector2* vec, std::wstring* tex
 	return ((float* (*)(cube::BaseWidget*, FloatVector2*, std::wstring*, float, float))CWOffset(0x269210))(this, vec, text, x, y);
 }
 
+void cube::BaseWidget::SetScalableFont(std::wstring* filename)
+{
+	this->scalable_font = this->d3d11_engine->font_engine->LoadFont(filename);
+}
+
 void cube::BaseWidget::SetTextColor(FloatRGBA* color)
 {
 	this->text_color = *color;
