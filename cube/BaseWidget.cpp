@@ -1,7 +1,7 @@
 #include "BaseWidget.h"
 #include "../cwsdk.h"
 
-float* cube::BaseWidget::DrawBaseWidgetText(FloatVector2* vec, std::wstring* text, float x, float y)
+float* cube::BaseWidget::DrawText(FloatVector2* vec, std::wstring* text, float x, float y)
 {
 	return ((float* (*)(cube::BaseWidget*, FloatVector2*, std::wstring*, float, float))CWOffset(0x269210))(this, vec, text, x, y);
 }

@@ -24,7 +24,7 @@ namespace cube {
 		FloatRGBA border_color;
 		TextPivot text_pivot;
 
-		float* DrawBaseWidgetText(FloatVector2* vec, std::wstring* text, float x, float y);
+		float* DrawText(FloatVector2* vec, std::wstring* text, float x, float y);
 		void SetScalableFont(std::wstring* filename);
 		void SetTextColor(FloatRGBA* color);
 		void SetTextColor(char r, char g, char b, char a = 255);

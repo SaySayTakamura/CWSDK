@@ -16,3 +16,8 @@ void plasma::Node::Translate(float baseX, float baseY, float offsetX, float offs
 i32 plasma::Node::Draw(u32 flags) {
 	return ((i32(*)(plasma::Node*, u32))CWOffset(0x330B20))(this, flags);
 }
+
+void plasma::Node::CW_100EE0(Matrix4* matrix)
+{
+	((void (*)(plasma::Node*, Matrix4*))CWOffset(0x100EE0))(this, matrix);
+}

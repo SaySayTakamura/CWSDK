@@ -1,6 +1,11 @@
 #include "Widget.h"
 #include <cwsdk.h>
 
+FloatVector2* plasma::Widget::GetSomeVector2(FloatVector2* vec)
+{
+	return ((FloatVector2* (*)(plasma::Widget*, FloatVector2*))CWOffset(0x32D010))(this, vec);
+}
+
 FloatVector2* plasma::Widget::GetSize(FloatVector2* vec)
 {
 	float x_add = matrix.x_end - matrix.x_begin;

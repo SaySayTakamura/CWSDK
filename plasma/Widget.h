@@ -33,6 +33,7 @@ namespace plasma {
             _BYTE gap180[39];
             char end;
 
+            FloatVector2* GetSomeVector2(FloatVector2* vec);
             FloatVector2* GetSize(FloatVector2* vec);
             float GetXSize();
             float GetYSize();
