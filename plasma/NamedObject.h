@@ -3,15 +3,13 @@
 
 #include "../IDA/types.h"
 #include "Object.h"
+#include <string>
 
 namespace plasma {
     class NamedObject : public plasma::Object {
         public:
-            void *field_18;
-            __int64 field_20;
-            __int64 field_28;
-            __int64 field_30;
+            std::wstring name;
         };
 }
-
+static_assert(sizeof(plasma::NamedObject) == 0x38, "plasma::Widget is not the correct size.");
 #endif // NAMEDOBJECT_H

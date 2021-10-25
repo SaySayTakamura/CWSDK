@@ -11,8 +11,7 @@ namespace cube {
             StartGame = 0,
             Options = 1,
             Exit = 2,
-            Continue = 3,
-            Mods = 4,
+            Continue = 3
         };
         cube::Game* game;
         HoverState hover_state;

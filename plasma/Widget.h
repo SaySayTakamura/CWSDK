@@ -6,6 +6,14 @@
 #include "../common/Matrix4.h"
 #include "../common/Vector2.h"
 
+class WidgetMatrix {
+public:
+    float _11, _12, _13, _14;
+    float x_end, y_end, _23, _24;
+    float x_begin, y_begin, _33, _34;
+    float max_width, max_height, min_width, min_height;
+};
+
 namespace plasma {
     class Node;
     class Widget : public plasma::NamedObject {
@@ -14,9 +22,11 @@ namespace plasma {
 
             void* deformer_vtable;
             float scale;
-            _BYTE gap44[20];
+            FloatVector2 some_size;
+            float scale2;
+            _BYTE gap44[8];
             __int64 d3d11_render_surface_ptr;
-            Matrix4 matrix;
+            WidgetMatrix matrix;
             __int64 field_A0;
             _BYTE gapA8[208];
             plasma::Node* node;
@@ -26,6 +36,9 @@ namespace plasma {
             FloatVector2* GetSize(FloatVector2* vec);
             float GetXSize();
             float GetYSize();
+            
+            Widget* CreateCopy(Node* node);
+            Widget* Copy(Widget* src, Node* node);
         };
 }
 
