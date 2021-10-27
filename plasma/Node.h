@@ -4,6 +4,7 @@
 #include "../IDA/types.h"
 #include "../common/Matrix4.h"
 #include "../common/types.h"
+#include "../common/Vector2.h"
 #include "NamedObject.h"
 #include "Vector.h"
 #include <list>
@@ -16,7 +17,7 @@ namespace plasma {
         public:
             __int64 field_38;
             plasma::Node* parent;
-            std::list<plasma::Node*> nodes;
+            std::list<plasma::Node*> children;
             __int64 field_58;
             plasma::Transformation* transformation;
             plasma::Display* display;
@@ -34,18 +35,28 @@ namespace plasma {
             __int64 field_B8;
             __int64 field_C0;
 
-            void Translate(plasma::Vector<2, float>* base, plasma::Vector<2, float>* offset);
-            void Translate(float baseX, float baseY, float offsetX, float offsetY);
-
-            i32 Draw(u32 flags);
-
-            void MaybeLoadTransformationMatrix(Matrix4* matrix);
-
-            plasma::Node* FindChildNodeByName(std::wstring* name);
-            plasma::Node* CopyMaybe(plasma::Node* node);
-
+            // Only called once in GUI init, but here for documentation purposes
+            plasma::Node* ctor(plasma::D3D11Engine* engine, plasma::Transformation* transformation, std::list<plasma::Node*>* nodes, plasma::Display* display, std::wstring* name);
             void SetTransformation(plasma::Transformation* transformation);
             void SetDisplay(plasma::Display* display);
+
+            void Translate(FloatVector2* base, FloatVector2* offset);
+            void Translate(float baseX, float baseY, float offsetX, float offsetY);
+
+            plasma::Node* Draw(u32 flags);
+
+            bool IsVisible();
+            void SetVisibility(bool visible);
+
+            // Might just be the full implementation of IsMouseOverNode
+            plasma::Node* GetHoveredNode(FloatVector2* mouse_pos, u32 flags);
+            bool IsMouseOverNode();
+
+            void LoadSomeMatrix(Matrix4* matrix);
+
+            plasma::Node* FindChildByName(std::wstring* name);
+            plasma::Node* CopyMaybe(plasma::Node* node);
+            void ClearChildrenMaybe();
         };
 }
 static_assert(sizeof(plasma::Node) == 0xC8, "plasma::Node is not the correct size.");
