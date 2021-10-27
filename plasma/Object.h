@@ -7,7 +7,7 @@ namespace plasma {
     class D3D11Engine;
     class Object {
         public:
-            virtual ~Object();
+            virtual ~Object();  // 0x0
 
             plasma::D3D11Engine *d3d11_engine;
             __int64 field_10;

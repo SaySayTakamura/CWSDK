@@ -17,15 +17,15 @@ namespace plasma {
             __int64 field_38;
             plasma::Node* parent;
             std::list<plasma::Node*> nodes;
-            //__int64 field_48;
-            //__int64 field_50;
             __int64 field_58;
             plasma::Transformation* transformation;
             plasma::Display* display;
             plasma::Widget* widget1;
             plasma::Widget* widget2;
-            __int64 field_80;
-            __int64 field_88;
+            int some_flags;
+            char some_bool;
+            // 3 bytes padding
+            void* engine_vtable;
             __int64 field_90;
             __int64 field_98;
             __int64 field_A0;
@@ -36,9 +36,17 @@ namespace plasma {
 
             void Translate(plasma::Vector<2, float>* base, plasma::Vector<2, float>* offset);
             void Translate(float baseX, float baseY, float offsetX, float offsetY);
+
             i32 Draw(u32 flags);
-            void CW_100EE0(Matrix4* matrix);
+
+            void MaybeLoadTransformationMatrix(Matrix4* matrix);
+
+            plasma::Node* FindChildNodeByName(std::wstring* name);
+            plasma::Node* CopyMaybe(plasma::Node* node);
+
+            void SetTransformation(plasma::Transformation* transformation);
+            void SetDisplay(plasma::Display* display);
         };
 }
-
+static_assert(sizeof(plasma::Node) == 0xC8, "plasma::Node is not the correct size.");
 #endif // NODE_H
