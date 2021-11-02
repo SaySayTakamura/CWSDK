@@ -108,6 +108,8 @@
 #include "plasma/Transformation.h"
 #include "plasma/Vector.h"
 #include "plasma/Widget.h"
+#include "plasma/Shape.h"
+#include "plasma/TextShape.h"
 
 #include "steam/steam_api_common.h"
 

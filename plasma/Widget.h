@@ -79,6 +79,9 @@ namespace plasma {
             float GetXSize();
             float GetYSize();
             
+            void Translate(FloatVector2* vec, int flags);
+            void Translate(float x, float y, int flags);
+
             Widget* CreateCopy(Node* node);
             Widget* Copy(Widget* src, Node* node);
         };

@@ -15,6 +15,8 @@ namespace plasma {
             __int64 field_60;
             __int64 field_68;
         };
+
+    static_assert(sizeof(plasma::Keyable) == 0x70, "plasma::Keyable is not the correct size.");
 }
 
 #endif // KEYABLE_H

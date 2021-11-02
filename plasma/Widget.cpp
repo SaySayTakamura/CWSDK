@@ -52,6 +52,17 @@ float plasma::Widget::GetYSize()
 	return this->GetSize(&vec2)->y;
 }
 
+void plasma::Widget::Translate(FloatVector2* vec, int flags)
+{
+	((void (*)(plasma::Widget*, FloatVector2*, int))CWOffset(0x32C6F0))(this, vec, flags);
+}
+
+void plasma::Widget::Translate(float x, float y, int flags)
+{
+	FloatVector2 vec(x, y);
+	this->Translate(&vec, flags);
+}
+
 plasma::Widget* plasma::Widget::CreateCopy(Node* node)
 {
 	return ((plasma::Widget * (*)(plasma::Widget*, plasma::Node*))CWOffset(0x32A2C0))(this, node);

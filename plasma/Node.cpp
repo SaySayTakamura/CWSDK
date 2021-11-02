@@ -7,6 +7,11 @@ plasma::Node* plasma::Node::ctor(plasma::D3D11Engine* engine, plasma::Transforma
 	return ((plasma::Node * (*)(plasma::Node*, plasma::D3D11Engine*, plasma::Transformation*, std::list<plasma::Node*>*, plasma::Display*, std::wstring*))CWOffset(0x32EE60))(this, engine, transformation, nodes, display, name);
 }
 
+plasma::Node* plasma::Node::CreateAndAddNodeMaybe(plasma::Node* root_node)
+{
+	return ((plasma::Node* (*)(plasma::Node*, plasma::Node*))CWOffset(0x3308E0))(this, root_node);
+}
+
 void plasma::Node::Translate(FloatVector2* base, FloatVector2* offset) {
 	((void(*)(plasma::Node*, FloatVector2*, FloatVector2*))CWOffset(0x334510))(this, base, offset);
 }
@@ -26,7 +31,7 @@ bool plasma::Node::IsVisible()
 
 void plasma::Node::SetVisibility(bool visible)
 {
-	this->display->SetVisibility(this->display->visibility.current_frame, visible ? 1 : 0);
+	this->display->SetVisibility(visible);
 }
 
 plasma::Node* plasma::Node::GetHoveredNode(FloatVector2* mouse_pos, u32 flags)
@@ -49,9 +54,19 @@ plasma::Node* plasma::Node::FindChildByName(std::wstring* name)
 	return ((plasma::Node* (*)(plasma::Node*, std::wstring*))CWOffset(0x332190))(this, name);
 }
 
-plasma::Node* plasma::Node::CopyMaybe(plasma::Node* node)
+void plasma::Node::FindByNameAndSetString(std::wstring* name, std::string* str, int flags)
 {
-	return ((plasma::Node* (*)(plasma::Node*, plasma::Node*))CWOffset(0x333890))(this, node);
+	((void (*)(plasma::Node*, std::wstring*, std::string*, int flags))CWOffset(0xA3940))(this, name, str, flags);
+}
+
+void plasma::Node::FindByNameAndSetString(std::wstring* name, std::wstring* str, int flags)
+{
+	((void (*)(plasma::Node*, std::wstring*, std::wstring*, int flags))CWOffset(0x3348E0))(this, name, str, flags);
+}
+
+plasma::Node* plasma::Node::CreateCopy(plasma::Node* parent)
+{
+	return ((plasma::Node* (*)(plasma::Node*, plasma::Node*))CWOffset(0x333890))(this, parent);
 }
 
 void plasma::Node::ClearChildrenMaybe()

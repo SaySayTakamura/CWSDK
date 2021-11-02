@@ -7,6 +7,7 @@
 #include "../common/Vector2.h"
 #include "NamedObject.h"
 #include "Vector.h"
+#include "TextShape.h"
 #include <list>
 
 namespace plasma {
@@ -18,7 +19,7 @@ namespace plasma {
             __int64 field_38;
             plasma::Node* parent;
             std::list<plasma::Node*> children;
-            __int64 field_58;
+            plasma::TextShape* text_shape;
             plasma::Transformation* transformation;
             plasma::Display* display;
             plasma::Widget* widget1;
@@ -37,6 +38,8 @@ namespace plasma {
 
             // Only called once in GUI init, but here for documentation purposes
             plasma::Node* ctor(plasma::D3D11Engine* engine, plasma::Transformation* transformation, std::list<plasma::Node*>* nodes, plasma::Display* display, std::wstring* name);
+            plasma::Node* CreateAndAddNodeMaybe(plasma::Node* root_node);
+
             void SetTransformation(plasma::Transformation* transformation);
             void SetDisplay(plasma::Display* display);
 
@@ -55,7 +58,11 @@ namespace plasma {
             void LoadSomeMatrix(Matrix4* matrix);
 
             plasma::Node* FindChildByName(std::wstring* name);
-            plasma::Node* CopyMaybe(plasma::Node* node);
+
+            void FindByNameAndSetString(std::wstring* name, std::string* str, int flags);
+            void FindByNameAndSetString(std::wstring* name, std::wstring* str, int flags);
+
+            plasma::Node* CreateCopy(plasma::Node* parent);
             void ClearChildrenMaybe();
         };
 }
