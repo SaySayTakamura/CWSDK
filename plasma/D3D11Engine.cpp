@@ -26,7 +26,44 @@ plasma::Node* plasma::D3D11Engine::CreateNode(plasma::Node* root_node, std::wstr
 	return this->CreateNode(nullptr, nullptr, nullptr, root_node, name);
 }
 
-bool plasma::D3D11Engine::LoadNodeFromFile(std::wstring* filename, plasma::Node* node, int a4, int a5, void* some_struct)
+long long EncodeKey(std::string* key)
 {
-	return ((bool (*)(plasma::D3D11Engine*, std::wstring*, plasma::Node*, int, int, void*))CWOffset(0x3429A0))(this, filename, node, a4, a5, some_struct);
+	long long base = 0x3FFFFFFFFFFE5;
+	size_t size = key->size();
+	if (size > 0)
+	{
+		size_t r10 = key->capacity();
+		int i = 0;
+		while (i < size)
+		{
+			base *= 31;
+			base += key->at(i);
+			i++;
+		}
+	}
+	return base;
+}
+
+
+
+void InitKeyObject(BytesIO* obj, int flag, long long* key)
+{
+	((void (*)(BytesIO*, int, long long*))CWOffset(0xF9110))(obj, flag, key);
+}
+
+
+
+bool plasma::D3D11Engine::LoadNodeFromFile(std::wstring* filename, plasma::Node* node, int a4, int a5)
+{
+	static std::string key("PlasmaXGraphics");
+	BytesIO keyObj;
+
+	long long encodedKey = EncodeKey(&key);
+	InitKeyObject(&keyObj, 1, &encodedKey);
+	return this->LoadNodeFromFile(filename, node, a4, a5, &keyObj);
+}
+
+bool plasma::D3D11Engine::LoadNodeFromFile(std::wstring* filename, plasma::Node* node, int a4, int a5, void* keyObj)
+{
+	return ((bool (*)(plasma::D3D11Engine*, std::wstring*, plasma::Node*, int, int, void*))CWOffset(0x3429A0))(this, filename, node, a4, a5, keyObj);
 }

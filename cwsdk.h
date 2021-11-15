@@ -101,6 +101,7 @@
 #include "plasma/Keyable.h"
 #include "plasma/NamedObject.h"
 #include "plasma/Matrix.h"
+#include "plasma/Map.h"
 #include "plasma/Node.h"
 #include "plasma/Object.h"
 #include "plasma/ObjectManager.h"

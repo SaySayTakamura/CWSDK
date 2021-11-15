@@ -99,7 +99,7 @@ add_library (CWSDK
     plasma/Widget.cpp
     plasma/Shape.h
     plasma/TextShape.h
-    "cube/BaseWidget.h" "cube/StartMenuWidget.h" "plasma/TextShape.h")
+    "cube/BaseWidget.h" "cube/StartMenuWidget.h" "plasma/TextShape.h" "plasma/Map.h" "plasma/Map.cpp")
 target_link_libraries(CWSDK winmm.lib)
 target_include_directories (CWSDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_include_directories (CWSDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/CWSDK)

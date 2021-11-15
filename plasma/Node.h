@@ -57,13 +57,15 @@ namespace plasma {
 
             void LoadSomeMatrix(Matrix4* matrix);
 
-            plasma::Node* FindChildByName(std::wstring* name);
+            plasma::Node* FindChildByName(const std::wstring* name);
 
             void FindByNameAndSetString(std::wstring* name, std::string* str, int flags);
             void FindByNameAndSetString(std::wstring* name, std::wstring* str, int flags);
 
             plasma::Node* CreateCopy(plasma::Node* parent);
             void ClearChildrenMaybe();
+
+            void cw_3347F0(plasma::Node* node);
         };
 }
 static_assert(sizeof(plasma::Node) == 0xC8, "plasma::Node is not the correct size.");

@@ -48,6 +48,8 @@ class OptionsWidget : public cube::BaseWidget {
         plasma::Node* cancel_button;
         cube::Options options;
         int resolution_index;
+
+        cube::OptionsWidget* ctor(cube::Game* game, plasma::Node* blackwidget, plasma::Node* left_button, plasma::Node* right_button, plasma::Node* button2);
     };
 }
 

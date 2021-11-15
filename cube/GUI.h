@@ -6,6 +6,7 @@
 
 #include "../IDA/types.h"
 #include "../plasma/Node.h"
+#include "../plasma/Map.h"
 #include "ChatWidget.h"
 #include "InventoryWidget.h"
 #include "MultiplayerWidget.h"
@@ -119,7 +120,7 @@ namespace cube {
             plasma::Node* blackwidget_node_0;
             plasma::Node* speech_node;
             plasma::Node* tab_node;
-            plasma::Node* plasma_node_54;
+            plasma::Node* icon_plx_node;
             plasma::Node* cursor_node;
             plasma::Node* wait_node;
             plasma::Node* button_node_5;
@@ -169,7 +170,8 @@ namespace cube {
             plasma::Node* treasure_node;
             plasma::Node* witch_node;
             plasma::Node* demonportal_node;
-            char pad_04B8[32];
+            plasma::Map<plasma::Node> icon_node_map;
+            plasma::Map<void> map_4C8;
             plasma::Node* weaponrarity0_node;
             plasma::Node* weaponrarity1_node;
             plasma::Node* weaponrarity2_node;
@@ -197,9 +199,11 @@ namespace cube {
             plasma::Node* friendlifebar_node;
             plasma::Node* staticlifebar_node;
             plasma::Node* neutrallifebar_node;
-            _BYTE gap5A8[24];
+            int field_5A8;
+            _BYTE gap_5AC[4];
+            std::list<void*> list_5B0_nodesize_0x18;
             cube::Game* game;
-            char pad_05C8[8];
+            void* field_5C8;
 
             void UpdateResolution(signed int width, signed int height);
             void SomethingWithStartMenuGUISelection(cube::StartMenuWidget* widget, int x, int y);

@@ -49,9 +49,9 @@ void plasma::Node::LoadSomeMatrix(Matrix4* matrix)
 	((void (*)(plasma::Node*, Matrix4*))CWOffset(0x100EE0))(this, matrix);
 }
 
-plasma::Node* plasma::Node::FindChildByName(std::wstring* name)
+plasma::Node* plasma::Node::FindChildByName(const std::wstring* name)
 {
-	return ((plasma::Node* (*)(plasma::Node*, std::wstring*))CWOffset(0x332190))(this, name);
+	return ((plasma::Node* (*)(plasma::Node*, const std::wstring*))CWOffset(0x332190))(this, name);
 }
 
 void plasma::Node::FindByNameAndSetString(std::wstring* name, std::string* str, int flags)
@@ -72,6 +72,11 @@ plasma::Node* plasma::Node::CreateCopy(plasma::Node* parent)
 void plasma::Node::ClearChildrenMaybe()
 {
 	((void (*)(plasma::Node*))CWOffset(0x330A80))(this);
+}
+
+void plasma::Node::cw_3347F0(plasma::Node* node)
+{
+	((void (*)(plasma::Node*, plasma::Node*))CWOffset(0x3347F0))(this, node);
 }
 
 void plasma::Node::SetTransformation(plasma::Transformation* transformation)
