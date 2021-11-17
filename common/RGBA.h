@@ -15,6 +15,14 @@ class RGBA {
 			this->alpha = (T)0;
 		}
 
+		RGBA(T c)
+		{
+			this->red = c;
+			this->green = c;
+			this->blue = c;
+			this->alpha = c;
+		}
+
 		RGBA(T red, T green, T blue, T alpha) {
 			this->red = red;
 			this->green = green;

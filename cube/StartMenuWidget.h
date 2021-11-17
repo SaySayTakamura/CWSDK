@@ -16,6 +16,8 @@ namespace cube {
         cube::Game* game;
         HoverState hover_state;
         int field_1F4;
+
+        cube::StartMenuWidget* ctor(cube::Game* game, plasma::Node* node);
     };
 }
 

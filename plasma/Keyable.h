@@ -3,17 +3,16 @@
 
 #include "../IDA/types.h"
 #include "NamedObject.h"
+#include <list>
 
 namespace plasma {
     class Keyable : public plasma::NamedObject {
         public:
-            __int64 field_38;
-            __int64 field_40;
-            __int64 field_48;
-            __int64 field_50;
-            __int64 field_58;
-            __int64 field_60;
-            __int64 field_68;
+            // Unknown list type
+            std::list<void*> list_38;
+            __int16 field_48;
+            // 6 bytes padding
+            std::wstring string;
         };
 
     static_assert(sizeof(plasma::Keyable) == 0x70, "plasma::Keyable is not the correct size.");

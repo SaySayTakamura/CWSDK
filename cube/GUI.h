@@ -170,8 +170,8 @@ namespace cube {
             plasma::Node* treasure_node;
             plasma::Node* witch_node;
             plasma::Node* demonportal_node;
-            plasma::Map<plasma::Node> icon_node_map;
-            plasma::Map<void> map_4C8;
+            plasma::Map<long long, plasma::Node*> icon_node_map;
+            plasma::Map<long long, plasma::Node*> skill_node_map;
             plasma::Node* weaponrarity0_node;
             plasma::Node* weaponrarity1_node;
             plasma::Node* weaponrarity2_node;

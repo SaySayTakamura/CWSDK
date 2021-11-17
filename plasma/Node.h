@@ -1,5 +1,4 @@
-#ifndef NODE_H
-#define NODE_H
+#pragma once
 
 #include "../IDA/types.h"
 #include "../common/Matrix4.h"
@@ -69,4 +68,3 @@ namespace plasma {
         };
 }
 static_assert(sizeof(plasma::Node) == 0xC8, "plasma::Node is not the correct size.");
-#endif // NODE_H

@@ -53,6 +53,17 @@ void InitKeyObject(BytesIO* obj, int flag, long long* key)
 
 
 
+plasma::TextShape* plasma::D3D11Engine::CreateTextShape(std::wstring* str, std::wstring* name)
+{
+	return ((plasma::TextShape* (*)(plasma::D3D11Engine*, std::wstring*, std::wstring*))CWOffset(0x33DA70))(this, str, name);
+}
+
+plasma::TextShape* plasma::D3D11Engine::CreateTextShape()
+{
+	std::wstring wstr_empty = L"";
+	return this->CreateTextShape(&wstr_empty, &wstr_empty);
+}
+
 bool plasma::D3D11Engine::LoadNodeFromFile(std::wstring* filename, plasma::Node* node, int a4, int a5)
 {
 	static std::string key("PlasmaXGraphics");

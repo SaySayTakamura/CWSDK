@@ -1,12 +1,16 @@
 #pragma once
+
 #include <map>
 #include <set>
-#include "Node.h"
 
 namespace plasma
 {
-	template <typename T>
-	class Map
+	class Node;
+
+	template <typename...> class Map;
+	template <typename T1, typename T2>
+
+	class Map<T1, T2>
 	{
 	public:
 		class Node {
@@ -16,8 +20,8 @@ namespace plasma
 			Node* right;
 			char color;
 			char isnil;
-			long long key;
-			T* val;
+			T1 key;
+			T2 val;
 		};
 
 		class Result
@@ -30,9 +34,9 @@ namespace plasma
 		Map::Node* head;
 		__int64 size;
 
-		Map<T>::Result* FindOrCreateNode(plasma::Map<T>::Result* result, int key);
+		Map<T1, T2>::Result* FindOrCreateNode(plasma::Map<T1, T2>::Result* result, int key);
 	};
 
-	static_assert(sizeof(Map<plasma::Node>::Node) == 0x30, "Expected plasma::TreeNode to be of size 0x30");
-	static_assert(sizeof(Map<plasma::Node>) == 0x10, "Expected plasma::NodeMap to be of size 0x10");
+	static_assert(sizeof(Map<long long, plasma::Node*>::Node) == 0x30, "Expected plasma::Map<long long, plasma::Node*>::Node to be of size 0x30");
+	static_assert(sizeof(Map<long long, plasma::Node*>) == 0x10, "Expected plasma::Map<long long, plasma::Node*> to be of size 0x10");
 }

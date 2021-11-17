@@ -18,6 +18,9 @@ namespace plasma {
             plasma::Node* CreateNode(plasma::Transformation* transformation, plasma::TextShape* text_shape, plasma::Display* display, plasma::Node* root_node, std::wstring* name);
             plasma::Node* CreateNode(plasma::Node* root_node, std::wstring* name);
 
+            plasma::TextShape* CreateTextShape(std::wstring* str, std::wstring* name);
+            plasma::TextShape* CreateTextShape();
+
             bool LoadNodeFromFile(std::wstring* filename, plasma::Node* node, int a4, int a5);
             bool LoadNodeFromFile(std::wstring* filename, plasma::Node* node, int a4, int a5, void* keyObj);
         };
