@@ -8,6 +8,7 @@
 namespace plasma {
     class NamedObject : public plasma::Object {
         public:
+            virtual ~NamedObject();
             std::wstring name;
         };
 }

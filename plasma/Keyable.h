@@ -8,6 +8,8 @@
 namespace plasma {
     class Keyable : public plasma::NamedObject {
         public:
+            virtual ~Keyable();
+            virtual void Load(bool flag); //0x8
             // Unknown list type
             std::list<void*> list_38;
             __int16 field_48;

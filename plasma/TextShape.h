@@ -10,21 +10,32 @@
 namespace plasma {
     class TextShape : public Shape {
     public:
+        virtual ~TextShape();
+        // Loads the scalable font by the stored file name.
+        // Flag: Override font if already defined
+        virtual void Load(bool flag);
+        virtual void Draw(plasma::Node* node);
+        virtual bool IsPointInsideShape(FloatVector2* vec);
+        virtual FloatVector2* GetSomeMaxVector(FloatVector2* vec);
+        virtual FloatVector2* GetSomeMinVector(FloatVector2* vec);
+        virtual TextShape* CreateCopy();
+
+
         plasma::DiscreteAttribute<std::wstring> string;
         plasma::ContinuousAttribute<FloatRGBA> colors;
         plasma::ContinuousAttribute<FloatRGBA> strokeColors;
         plasma::ContinuousAttribute<FloatRGBA> extrusionColors;
-        float size_maybe;
-        float some_other_size_maybe;
-        _BYTE field_2C0[4];
-        float float_2C4;
+        float text_size;
+        float stroke_size;
+        float horizontal_spacing;
+        float vertical_spacing;
         std::wstring font_file_name;
         __int64 field_2E8;
         void* scalable_font;
         int int_2F8;
         int field_2FC;
-        __int64 field_300;
-        FloatVector2 field_308;
+        FloatVector2 some_max;
+        FloatVector2 some_min;
         float field_310;
         float field_314;
         float field_318;
