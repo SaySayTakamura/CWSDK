@@ -3,15 +3,25 @@
 
 #include "../IDA/types.h"
 #include "NamedObject.h"
+#include "Map.h"
 #include "../common/Matrix4.h"
+#include "Matrix.h"
 #include "../common/Vector2.h"
 
 class WidgetMatrix {
 public:
     float _11, _12, _13, _14;
-    float x_end, y_end, _23, _24;
-    float x_begin, y_begin, _33, _34;
-    float max_width, max_height, min_width, min_height;
+    float _21, _22, _mintx, _minty;
+    float _31, _32, _addtx, _addty;
+    float _41, _42, _43, _44;
+};
+
+class TransformationMatrix {
+public:
+    float _sx, _12, _13, _14;
+    float _21, _sy, _23, _24;
+    float _31, _32, _sz, _34;
+    float _tx, _ty, _tz, _44;
 };
 
 namespace plasma {
@@ -67,20 +77,37 @@ namespace plasma {
             float scale2;
             _BYTE gap44[8];
             __int64 d3d11_render_surface_ptr;
-            WidgetMatrix matrix;
-            __int64 field_A0;
-            _BYTE gapA8[208];
+            plasma::Matrix<float> matrix;
+            std::wstring some_string;
+            _BYTE gapC0[16];
+            plasma::Matrix<float> base_transformation;
+            plasma::Matrix<float> local_transformation;
+            int some_flag;
+            _BYTE gap154[4];
+            int field_158;
+            char field_15C;
+            _BYTE gap160[8];
+            __int64 field_168;
+            __int64 field_170;
             plasma::Node* node;
-            _BYTE gap180[39];
-            char end;
+            _BYTE gap180[8];
+            plasma::Map<int, void*> some_map;
+            __int64 field_198;
+            char field_1A0;
+            //char end;
 
             FloatVector2* GetSomeVector2(FloatVector2* vec);
             FloatVector2* GetSize(FloatVector2* vec);
             float GetXSize();
             float GetYSize();
+
+            void SetSize(FloatVector2* vec);
+            void SetSize(float x, float y);
             
             void Translate(FloatVector2* vec, int flags);
             void Translate(float x, float y, int flags);
+
+            void CW_32B0C0();
 
             Widget* CreateCopy(Node* node);
             Widget* Copy(Widget* src, Node* node);

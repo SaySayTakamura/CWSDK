@@ -8,6 +8,12 @@
 #include "../IDA/types.h"
 
 namespace plasma {
+    enum TextPivot : int {
+        Left = 0,
+        Center,
+        Right
+    };
+
     class TextShape : public Shape {
     public:
         virtual ~TextShape();
@@ -32,7 +38,7 @@ namespace plasma {
         std::wstring font_file_name;
         __int64 field_2E8;
         void* scalable_font;
-        int int_2F8;
+        int text_pivot;
         int field_2FC;
         FloatVector2 some_max;
         FloatVector2 some_min;

@@ -7,7 +7,7 @@ plasma::Node* plasma::Node::ctor(plasma::D3D11Engine* engine, plasma::Transforma
 	return ((plasma::Node * (*)(plasma::Node*, plasma::D3D11Engine*, plasma::Transformation*, std::list<plasma::Node*>*, plasma::Display*, std::wstring*))CWOffset(0x32EE60))(this, engine, transformation, nodes, display, name);
 }
 
-plasma::Node* plasma::Node::CreateAndAddNodeMaybe(plasma::Node* root_node)
+plasma::Node* plasma::Node::CreateDeepCopy(plasma::Node* root_node)
 {
 	return ((plasma::Node* (*)(plasma::Node*, plasma::Node*))CWOffset(0x3308E0))(this, root_node);
 }
@@ -74,9 +74,24 @@ void plasma::Node::ClearChildrenMaybe()
 	((void (*)(plasma::Node*))CWOffset(0x330A80))(this);
 }
 
-void plasma::Node::cw_3347F0(plasma::Node* node)
+void plasma::Node::SetText(std::wstring* text)
+{
+	((void (*)(plasma::Node*, std::wstring*))CWOffset(0x334C50))(this, text);
+}
+
+void plasma::Node::SetParent(plasma::Node* node)
 {
 	((void (*)(plasma::Node*, plasma::Node*))CWOffset(0x3347F0))(this, node);
+}
+
+void plasma::Node::AddChild(plasma::Node* node)
+{
+	((void (*)(plasma::Node*, plasma::Node*))CWOffset(0x32F640))(this, node);
+}
+
+void plasma::Node::CW_334330(plasma::Node* node)
+{
+	((void (*)(plasma::Node*, plasma::Node*))CWOffset(0x334330))(this, node);
 }
 
 void plasma::Node::SetTransformation(plasma::Transformation* transformation)

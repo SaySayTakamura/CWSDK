@@ -8,7 +8,7 @@ FloatVector2* plasma::Widget::GetSomeVector2(FloatVector2* vec)
 
 FloatVector2* plasma::Widget::GetSize(FloatVector2* vec)
 {
-	float x_add = matrix.x_end - matrix.x_begin;
+	/*float x_add = matrix.x_end - matrix.x_begin;
 	float y_add = matrix.y_end - matrix.y_begin;
 	float v3 = matrix.min_width + x_add;
 	float v5 = matrix.max_width + x_add;
@@ -36,8 +36,8 @@ FloatVector2* plasma::Widget::GetSize(FloatVector2* vec)
 	
 	vec->x = v5 + matrix.x_begin - matrix.x_end;
 	vec->y = v4 + matrix.y_begin - matrix.y_end;
-	return vec;
-	//return ((FloatVector2* (*)(plasma::Widget*, FloatVector2*))CWOffset(0x32A110))(this, vec);
+	return vec;*/
+	return ((FloatVector2* (*)(plasma::Widget*, FloatVector2*))CWOffset(0x32A110))(this, vec);
 }
 
 float plasma::Widget::GetXSize()
@@ -52,6 +52,21 @@ float plasma::Widget::GetYSize()
 	return this->GetSize(&vec2)->y;
 }
 
+void plasma::Widget::SetSize(FloatVector2* vec)
+{
+	this->SetSize(vec->x, vec->y);
+}
+
+void plasma::Widget::SetSize(float x, float y)
+{
+	this->matrix.m[0] = 0;
+	this->matrix.m[1] = 0;
+	this->matrix.m[4] = (1 / 3.0f) * (200 - x);
+	this->matrix.m[8] = 200 - x;
+	this->matrix.m[5] = (1 / 3.0f) * (200 - y);
+	this->matrix.m[9] = 200 - y;
+}
+
 void plasma::Widget::Translate(FloatVector2* vec, int flags)
 {
 	((void (*)(plasma::Widget*, FloatVector2*, int))CWOffset(0x32C6F0))(this, vec, flags);
@@ -61,6 +76,11 @@ void plasma::Widget::Translate(float x, float y, int flags)
 {
 	FloatVector2 vec(x, y);
 	this->Translate(&vec, flags);
+}
+
+void plasma::Widget::CW_32B0C0()
+{
+	((void (*)(plasma::Widget*))CWOffset(0x32B0C0))(this);
 }
 
 plasma::Widget* plasma::Widget::CreateCopy(Node* node)

@@ -2,16 +2,11 @@
 
 #include "../plasma/Widget.h"
 #include "../plasma/ScalableFont.h"
+#include "../plasma/TextShape.h"
 #include "../common/Vector2.h"
 #include "../common/RGBA.h"
 
 namespace cube {
-	enum TextPivot : int {
-		Left = 0,
-		Center,
-		Right
-	};
-
 	class BaseWidget : public plasma::Widget {
 	public:
 		plasma::ScalableFont* scalable_font;
@@ -22,7 +17,7 @@ namespace cube {
 		float field_1C0;
 		FloatRGBA text_color;
 		FloatRGBA border_color;
-		TextPivot text_pivot;
+		plasma::TextPivot text_pivot;
 
 		BaseWidget* ctor(plasma::D3D11Engine* engine, plasma::Node* node, std::wstring* name);
 
@@ -34,7 +29,7 @@ namespace cube {
 		void SetBorderColor(char r, char g, char b, char a = 255);
 		void SetTextSize(float size);
 		void SetBorderSize(float size);
-		void SetTextPivot(TextPivot pivot);
+		void SetTextPivot(plasma::TextPivot pivot);
 		FloatVector2* GetRelativeMousePosition(FloatVector2* vec);
 	};
 }

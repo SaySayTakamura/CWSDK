@@ -37,7 +37,7 @@ namespace plasma {
 
             // Only called once in GUI init, but here for documentation purposes
             plasma::Node* ctor(plasma::D3D11Engine* engine, plasma::Transformation* transformation, std::list<plasma::Node*>* nodes, plasma::Display* display, std::wstring* name);
-            plasma::Node* CreateAndAddNodeMaybe(plasma::Node* root_node);
+            
 
             void SetTransformation(plasma::Transformation* transformation);
             void SetDisplay(plasma::Display* display);
@@ -62,9 +62,14 @@ namespace plasma {
             void FindByNameAndSetString(std::wstring* name, std::wstring* str, int flags);
 
             plasma::Node* CreateCopy(plasma::Node* parent);
+            plasma::Node* CreateDeepCopy(plasma::Node* parent);
             void ClearChildrenMaybe();
 
-            void cw_3347F0(plasma::Node* node);
+            void SetText(std::wstring* text);
+
+            void SetParent(plasma::Node* node);
+            void AddChild(plasma::Node* node);
+            void CW_334330(plasma::Node* node);
         };
 }
 static_assert(sizeof(plasma::Node) == 0xC8, "plasma::Node is not the correct size.");

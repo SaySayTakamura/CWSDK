@@ -56,7 +56,7 @@ void cube::BaseWidget::SetBorderSize(float size)
 	this->border_size = size;
 }
 
-void cube::BaseWidget::SetTextPivot(TextPivot pivot)
+void cube::BaseWidget::SetTextPivot(plasma::TextPivot pivot)
 {
 	this->text_pivot = pivot;
 }
