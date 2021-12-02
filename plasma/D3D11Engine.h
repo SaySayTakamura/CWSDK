@@ -23,6 +23,9 @@ namespace plasma {
 
             bool LoadNodeFromFile(std::wstring* filename, plasma::Node* node, int a4, int a5);
             bool LoadNodeFromFile(std::wstring* filename, plasma::Node* node, int a4, int a5, void* keyObj);
+
+            void* cw_33BCF0(void* a2, plasma::Object* object);
+            void* cw_33BFE0(void* a2, plasma::Widget* widget);
         };
 }
 

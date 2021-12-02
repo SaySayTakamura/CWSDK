@@ -6,7 +6,7 @@ cube::BaseWidget* cube::BaseWidget::ctor(plasma::D3D11Engine* engine, plasma::No
 	return ((cube::BaseWidget* (*)(cube::BaseWidget*, plasma::D3D11Engine*, plasma::Node*, std::wstring*))CWOffset(0x268A70))(this, engine, node, name);
 }
 
-float* cube::BaseWidget::DrawText(FloatVector2* vec, std::wstring* text, float x, float y)
+float* cube::BaseWidget::DrawString(FloatVector2* vec, std::wstring* text, float x, float y)
 {
 	return ((float* (*)(cube::BaseWidget*, FloatVector2*, std::wstring*, float, float))CWOffset(0x269210))(this, vec, text, x, y);
 }

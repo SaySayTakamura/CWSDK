@@ -78,3 +78,13 @@ bool plasma::D3D11Engine::LoadNodeFromFile(std::wstring* filename, plasma::Node*
 {
 	return ((bool (*)(plasma::D3D11Engine*, std::wstring*, plasma::Node*, int, int, void*))CWOffset(0x3429A0))(this, filename, node, a4, a5, keyObj);
 }
+
+void* plasma::D3D11Engine::cw_33BCF0(void* a2, plasma::Object* object)
+{
+	return ((void* (*)(plasma::D3D11Engine*, void*, plasma::Object*))CWOffset(0x33BCF0))(this, a2, object);
+}
+
+void* plasma::D3D11Engine::cw_33BFE0(void* a2, plasma::Widget* widget)
+{
+	return ((void* (*)(plasma::D3D11Engine*, void*, plasma::Widget*))CWOffset(0x33BCF0))(this, a2, widget);
+}

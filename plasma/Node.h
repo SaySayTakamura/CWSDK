@@ -69,7 +69,11 @@ namespace plasma {
 
             void SetParent(plasma::Node* node);
             void AddChild(plasma::Node* node);
+
             void CW_334330(plasma::Node* node);
+            void CW_334410(plasma::Widget* widget);
+            void CW_335830();
+            void CW_3356D0();
         };
 }
 static_assert(sizeof(plasma::Node) == 0xC8, "plasma::Node is not the correct size.");

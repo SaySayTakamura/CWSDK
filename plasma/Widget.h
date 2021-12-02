@@ -4,15 +4,15 @@
 #include "../IDA/types.h"
 #include "NamedObject.h"
 #include "Map.h"
-#include "../common/Matrix4.h"
 #include "Matrix.h"
+#include "../common/Matrix4.h"
 #include "../common/Vector2.h"
 
 class WidgetMatrix {
 public:
     float _11, _12, _13, _14;
-    float _21, _22, _mintx, _minty;
-    float _31, _32, _addtx, _addty;
+    float _21, _22, _23, _24;
+    float _31, _32, _33, _34;
     float _41, _42, _43, _44;
 };
 
@@ -29,16 +29,16 @@ namespace plasma {
     class Widget : public plasma::NamedObject {
         public:
             virtual void Draw();    // 0x08
-            virtual void* F_0x10(void*);    // 0x10
-            virtual void* F_0x18(void*);    // 0x18
-            virtual bool Return0_0x20();    // 0x20
-            virtual bool Return0_0x28();    // 0x28
-            virtual void nullsub_1();   // 0x30
+            virtual void* F_0x10(void* a1);    // 0x10
+            virtual void* F_0x18(void* a1);    // 0x18
+            virtual bool F_0x20();  // 0x20
+            virtual bool F_0x28();  // 0x28
+            virtual void F_0x30();  // 0x30
             virtual void F_0x38();  // 0x38
-            virtual int F_0x40();   // 0x40
+            virtual void F_0x40();  // 0x40
             virtual void F_0x48(FloatVector2* vec1, FloatVector2* vec2);    // 0x48
-            virtual void nullsub_2();   // 0x50
-            virtual void plasma__Widget__cw_32B990();   // 0x58
+            virtual void F_0x50();   // 0x50
+            virtual void F_0x58();   // 0x58
             virtual void plasma__Widget__cw_32BB40();   // 0x60
             virtual void nullsub_3();   // 0x68
             virtual void nullsub_4();   // 0x70
@@ -66,9 +66,9 @@ namespace plasma {
             virtual void plasma__Widget__cw_32B6B0();   // 0x120
             virtual void nullsub_24();  // 0x128
             virtual void nullsub_25();  // 0x130
-            virtual void sub_32B6E0();  // 0x138
-            virtual void CreateCopy();  // 0x140
-            virtual void sub_32A8D0();  // 0x148
+            virtual void plasma__Widget__cw_32B6E0();  // 0x138
+            virtual plasma::Widget* CreateCopy();  // 0x140
+            virtual void plasma__Widget__cw_32A8D0(bool enable);  // 0x148
             virtual void nullsub_26();  // 0x150
 
             void* deformer_vtable;

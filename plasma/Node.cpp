@@ -94,6 +94,21 @@ void plasma::Node::CW_334330(plasma::Node* node)
 	((void (*)(plasma::Node*, plasma::Node*))CWOffset(0x334330))(this, node);
 }
 
+void plasma::Node::CW_334410(plasma::Widget* widget)
+{
+	((void (*)(plasma::Node*, plasma::Widget*))CWOffset(0x334410))(this, widget);
+}
+
+void plasma::Node::CW_335830()
+{
+	((void (*)(plasma::Node*))CWOffset(0x335830))(this);
+}
+
+void plasma::Node::CW_3356D0()
+{
+	((void (*)(plasma::Node*))CWOffset(0x3356D0))(this);
+}
+
 void plasma::Node::SetTransformation(plasma::Transformation* transformation)
 {
 	((void (*)(plasma::Node*, plasma::Transformation*))CWOffset(0x334D30))(this, transformation);
