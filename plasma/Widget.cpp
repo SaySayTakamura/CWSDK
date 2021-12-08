@@ -82,6 +82,15 @@ void plasma::Widget::Translate(float x, float y, int flags)
 	this->Translate(&vec, flags);
 }
 
+bool plasma::Widget::IsSquareHovered(FloatVector2* mouse, int x, int y, int width, int height)
+{
+	if (mouse->x < x || mouse->x > x + width || mouse->y < y || mouse->y > y + height)
+	{
+		return false;
+	}
+	return true;
+}
+
 void plasma::Widget::CW_32B0C0()
 {
 	((void (*)(plasma::Widget*))CWOffset(0x32B0C0))(this);

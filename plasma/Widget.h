@@ -107,6 +107,8 @@ namespace plasma {
             void Translate(FloatVector2* vec, int flags);
             void Translate(float x, float y, int flags);
 
+            static bool IsSquareHovered(FloatVector2* mouse, int x, int y, int width, int height);
+
             void CW_32B0C0();
 
             Widget* CreateCopy(Node* node);
