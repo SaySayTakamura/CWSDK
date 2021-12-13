@@ -398,9 +398,6 @@ namespace cube {
 			int gold;
 			_BYTE gapAB0[8];
 			std::list<cube::Interaction> interactions;
-			// OLD
-			//_BYTE gapAC8[144];
-			// BEGIN NEW
 			std::map<void*, void*> map_AC8;
 			__int64 field_AD8;
 			_BYTE gapAE0[40];
@@ -408,7 +405,7 @@ namespace cube {
 			__int64 field_B10;
 			__int64 field_B18;
 			__int64 field_B20;
-			_BYTE gapAE0[12];
+			_BYTE gapB28[12];
 			int field_B34;
 			int field_B38;
 			int field_B3C;
@@ -416,7 +413,6 @@ namespace cube {
 			int field_B4C;
 			int field_B50;
 			int field_B54;
-			// END NEW
 			int field_B58;
 			int climbing_speed;
 			int swimming_speed;
@@ -425,11 +421,42 @@ namespace cube {
 			int hang_gliding_speed;
 			int sailing_speed;
 			int lamp_diameter;
-			_BYTE gapB78[184];
+			std::list<void*> list_B78;
+			std::list<void*> list_B88;
+			std::list<void*> list_B98;
+			int int_BA8;
+			bool bool_BAC;
+			// 3 bytes padding
+			__int64 field_BB0;
+			bool bool_BB8;
+			// 3 bytes padding
+			int field_BBC;
+			int field_BC0;
+			int field_BC4;
+			int field_BC8;
+			int field_BCC;
+			__int64 field_BD0;
+			__int64 field_BD8;
+			__int64 field_BE0;
+			int int_BE8;
+			// 4 bytes padding
+			__int64 field_BF0;
+			__int64 field_BF8;
+			__int64 field_C00;
+			std::list<void*> list_C08;
+			__int64 field_C18;
+			__int64 field_C20;
+			__int64 field_C28;
 			__int64 field_C30;
 			cube::Creature::AnimationState animation_state;
-			_BYTE gap1520[215];
-			char end;
+			__int64 field_1520;
+			__int64 field_1528;
+			float float_1530;
+			_BYTE gap1534[12];
+			bool bool_1540;
+			// 3 bytes padding
+			cube::Item some_item;
+			std::list<void*> list_15E8;
 
 
             static cube::Creature* Create(__int64 id);
