@@ -208,6 +208,7 @@ namespace cube {
             int width;
             int height;
             char shutdown;
+            // Todo: 3 bytes padding
             char field_1D69;
             char field_1D6A;
             char field_1D6B;
@@ -256,9 +257,9 @@ namespace cube {
             int field_1E8C;
             int field_1E90;
             int field_1E94;
-            int field_1E98;
+            int field_1E98; // Id of shopkeeper?
             int field_1E9C;
-            int field_1EA0;
+            int field_1EA0; // Class type of shopkeeper?
             Matrix4 some_camera_matrix_0;
             Matrix4 some_camera_matrix_1;
             Matrix4 some_camera_matrix_2;
@@ -302,6 +303,10 @@ namespace cube {
             void PlaySoundEffect(SoundEffect sound_id, float volume = 1.0, float speed = 1.0, bool unkbool = true);
 
             void MaybeLoadCharacter(int character_slot, cube::Creature* creature);
+
+            void AnnounceReceiptOfItem(cube::Item* item, int count = 1, cube::Creature* creature = nullptr);
+            // Might return bool
+            char GeneratePlayerStarterGear();
         };
 }
 

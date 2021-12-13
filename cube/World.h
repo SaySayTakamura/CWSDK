@@ -112,6 +112,9 @@ namespace cube {
             float GetTime();
 
             void CW_2E0B50();
+
+            void GenerateCreatureAppearance(cube::Creature* creature, int value = 0);
+            // Todo: Reverse engineer how to spawn creatures
     };
 }
 

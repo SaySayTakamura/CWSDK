@@ -6,6 +6,7 @@
 #include "../gfx/D3D11Graphics.h"
 #include "Sprite.h"
 #include <vector>
+#include <string>
 
 namespace cube {
     class SpriteManager {
@@ -18,6 +19,10 @@ namespace cube {
             std::vector<Sprite*> environment_sprites;
             std::vector<Sprite*> building_part_sprites;
             std::vector<Sprite*> cage_sprites;
+
+            void LoadSprites();
+            cube::Sprite* CreateSprite();
+            void ParseCubToSprite(Sprite* sprite, std::string file);
         };
 }
 

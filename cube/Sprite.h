@@ -34,6 +34,9 @@ namespace cube {
             int field_94;
             __int64 field_98;
             __int64 field_A0;
+
+            static cube::Sprite* Create(gfx::D3D11Graphics* graphics);
+            cube::Sprite* ctor(gfx::D3D11Graphics* graphics);
     };
        
 }

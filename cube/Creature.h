@@ -5,6 +5,7 @@
 #include "../common/Vector3.h"
 #include "../common/RGBA.h"
 #include "../common/Matrix4.h"
+#include "../plasma/Map.h"
 #include <vector>
 #include <list>
 #include "ItemStack.h"
@@ -15,6 +16,134 @@
 namespace cube {
     class Creature {
 	public:
+		// Todo: Add enums to the correct variables
+		// Todo: Add race enum
+		// Todo: Move cube::Creature::EntityData and cube::Creature::Appearance to different files
+		enum class ClassType
+		{
+			Warrior = 1,
+			Ranger,
+			Mage,
+			Rogue,
+			Monk, // Not yet implemented
+			Necromancer, // Not yet implemented
+			ItemVendor = 128,
+			WeaponVendor = 129,
+			ArmorVendor = 130,
+			Analyzer = 131,
+			InnKeeper = 132,
+			Smithy = 133,
+			Carpenter = 134,
+			Tailor = 135,
+			Archeologist = 136,
+			DONT_USE_WEIRD_DOUBLING,
+			FlightMaster = 154,
+			GuildReceptionist = 155,
+			GemTrader = 156,
+			ShopSupplier = 157,
+			MasterSailor = 159,
+			MasterGlider = 160,
+		};
+
+		enum class InventoryTab
+		{
+			EquipmentTab = 0,
+			SpecialsTab,
+			ItemsTab,
+			IngredientsTab,
+			PetsTab,
+			ArtifactsTab
+		};
+
+
+		enum class EntityBehaviour
+		{
+			Player = 0,
+			Hostile,
+			Passive,
+			NPC,
+			NPCInteract,
+			Unk_05,
+			Pet,
+			Inanimate,
+			ExamineObject,
+		};
+
+		enum class CollisionFlags
+		{
+			Ground = 0,
+			Water,
+			Wall,
+			Unk_03,
+			Surfaced,
+			Colliding,
+			ClippingObject,
+			Lava,
+			Unk_08,
+			Poison,
+			Snow,
+			Leaves,
+			Unk_12,
+			Road,
+			Unk_14,
+			Unk_15,
+		};
+
+		enum class AppearanceModifiers
+		{
+			IsFourFooted = 0,
+			Unk_01,
+			Unk_02,
+			Unk_03, //Is checked when dropping items (maybe some kind of drop thingy?)
+			Unk_04, //Is checked when dropping items (maybe some kind of drop thingy?)
+			NeededForGemTrader,
+			IsClassMaster,
+			Unk_07,
+			Unk_08,
+			IsNamedBoss,
+			HasGlowingHair,
+			Unk_11, //Is checked when dropping items (maybe some kind of drop thingy?)
+			Unk_12,
+			IsNotTalking,
+			CanPickup,
+			IsFriendly,
+			Unk_16,
+			IsMiniBoss,
+			IsBoss,
+			Unk_19,
+			IsGhost,
+			IsUseable,
+			IsPetrified,
+			Unk_23,
+			Unk_24,
+			Unk_25,
+			IsPossesed,
+			Unk_27,
+			Unk_28,
+			Unk_29,
+			Unk_30,
+			Unk_31
+		};
+
+		enum class StateFlags
+		{
+			ActiveLantern = 0,
+			Unk_01,
+			Unk_02,
+			Unk_03,
+			Unk_04,
+			Unk_05,
+			IsRunning,
+			Unk_07,
+			VisibleOnMap,
+			StayOnGround,
+			IsSneaking,
+			Unk_11,
+			Unk_12,
+			Unk_13,
+			Unk_14,
+			Unk_15
+		};
         // cube::Creature::EntityData
         class EntityData {
 		public:
@@ -68,12 +197,14 @@ namespace cube {
 			FloatVector3 retreat;
 			float head_rotation;
 			unsigned int flags;
-			char hostility_type;
+			char hostility_type; // EntityBehaviour
+			// Todo: Change to 3 bytes padding if possible
 			char field_61;
 			char field_62;
 			char field_63;
 			unsigned int race;
 			BYTE current_ability;
+			// Todo: Change to 3 bytes padding if possible
 			char field_59;
 			char field_5A;
 			char field_5B;
@@ -82,6 +213,7 @@ namespace cube {
 			float time_since_hit;
 			cube::Creature::EntityData::Appearance appearance;
 			__int16 binary_toggles;
+			// Todo: Change to 2 bytes padding if possible
 			char field_11A;
 			char field_11B;
 			float roll_time;
@@ -92,9 +224,10 @@ namespace cube {
 			int field_140;
 			unsigned int level;
 			int XP;
-			unsigned __int8 classType;
+			unsigned __int8 classType; // ClassType
 			char specialization;
-			_BYTE gap13E[10];
+			// 2 bytes padding
+			IntVector2 current_region;
 			char charge;
 			_BYTE gap149[27];
 			FloatVector3 attack_rotation;
@@ -104,7 +237,9 @@ namespace cube {
 			float stealth;
 			_BYTE gap180[4];
 			char field_184;
-			_BYTE gap185[67];
+			_BYTE gap185[7];
+			char interaction_state;
+			_BYTE gap18D[59];
 			cube::Item unk_item;
 			cube::Equipment equipment;
 			char name[16];
@@ -245,14 +380,43 @@ namespace cube {
 			__int64 id;
 			cube::Creature::EntityData entity_data;
 			std::list<cube::Creature::Buff> buffs;
-			_BYTE gap990[96];
+			void* field_990;
+			void* field_998;
+			float stamina;
+			float field_9A4;
+			float field_9A8;
+			_BYTE gap9AC[12];
+			std::list<void*> list_9B8;
+			std::list<void*> list_9C8;
+			long long pet_id;
+			void* field_9E0;
+			int field_9E8;
+			_BYTE gap9E0[4]; // Padding probably
 			std::vector<std::vector<cube::ItemStack>> inventory_tabs;
 			int field_A08;
 			cube::Item unk_item;
 			int gold;
 			_BYTE gapAB0[8];
 			std::list<cube::Interaction> interactions;
-			_BYTE gapAC8[144];
+			// OLD
+			//_BYTE gapAC8[144];
+			// BEGIN NEW
+			std::map<void*, void*> map_AC8;
+			__int64 field_AD8;
+			_BYTE gapAE0[40];
+			__int64 field_B08;
+			__int64 field_B10;
+			__int64 field_B18;
+			__int64 field_B20;
+			_BYTE gapAE0[12];
+			int field_B34;
+			int field_B38;
+			int field_B3C;
+			_BYTE gapB40[12];
+			int field_B4C;
+			int field_B50;
+			int field_B54;
+			// END NEW
 			int field_B58;
 			int climbing_speed;
 			int swimming_speed;
@@ -271,7 +435,6 @@ namespace cube {
             static cube::Creature* Create(__int64 id);
             cube::Creature* ctor(__int64* id);
 			float GetArmor();
-			static void OnGetArmor(cube::Creature* creature, float* armor) {}
 			float GetCritical(cube::Creature* other_creature = nullptr, bool other_creature_based_on_resistance = true);
 			float GetAttackPower(bool unk_bool = true);
 			float GetSpellPower(bool unk_bool = true);

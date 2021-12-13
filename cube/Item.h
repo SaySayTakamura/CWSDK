@@ -5,8 +5,19 @@
 #include "../common/Vector2.h"
 
 namespace cube {
+class Creature;
 class Item {
     public:
+
+        // Todo: Make enums / constants for all item types.
+        enum class MaterialType
+        {
+            FireSpirit = 128,
+            UnholySpirit,
+            IceSpirit,
+            WindSpirit,
+        };
+
         char category;
         //3 bytes padding
         int id;
@@ -22,6 +33,20 @@ class Item {
 
         Item();
         Item(char category, int id);
+        cube::Item* ctor();
+
+        void Copy(cube::Item* src);
+        float GetArmor(cube::Creature* creature);
+        float GetHP(cube::Creature* creature);
+        int GetArtifactType();
+        int GetEffectiveRarity(IntVector2* region);
+        int GetPrice();
+        bool CanBeEquippedByClass(int classType);
+
+        bool IsPlusItem();
+        void ConvertToPlusItem();
+        void ConvertToNormalWeapon();
+        void UpgradeItem();
     };
 }
 

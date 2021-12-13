@@ -112,3 +112,9 @@ void cube::World::CW_2E0B50()
 {
     ((void(*)(cube::World*))CWOffset(0x2E0B50))(this);
 }
+
+// Generates a creature appearance based on race field
+void cube::World::GenerateCreatureAppearance(cube::Creature* creature, int value)
+{
+    ((void (*)(cube::World*, int, cube::Creature*))CWOffset(0x2B67B0))(&cube::GetGame()->host.world, 0, creature);
+}
