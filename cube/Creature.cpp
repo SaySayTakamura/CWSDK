@@ -46,3 +46,13 @@ float cube::Creature::GetRegeneration() {
 float cube::Creature::GetManaGeneration() {
     return ((float (*)(cube::Creature*))CWOffset(0x5F8D0))(this);
 }
+
+bool cube::Creature::CanDoDamage(cube::Creature* other)
+{
+    return ((bool (*)(cube::Creature*, cube::Creature*))CWOffset(0x50550))(this, other);
+}
+
+cube::Creature::EntityData::Appearance* cube::Creature::EntityData::Appearance::Copy(cube::Creature::EntityData::Appearance* other)
+{
+    return ((cube::Creature::EntityData::Appearance* (*)(cube::Creature::EntityData::Appearance*, cube::Creature::EntityData::Appearance*))CWOffset(0x7E780))(this, other);
+}

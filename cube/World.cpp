@@ -17,6 +17,12 @@ cube::Zone* cube::World::GetZone(int x, int y) {
     IntVector2 position(x, y);
     return this->GetZone(position);
 }
+
+IntVector2* cube::World::GetRegion(IntVector2* region, int x, int y)
+{
+    ((IntVector2 * (*)(cube::World*, IntVector2*, int, int))CWOffset(0x2ADA20))(this, region, x, y);
+}
+
 void cube::World::SetBlock(LongVector3 block_pos, Block block, bool update) {
     IntVector2 zonePos = cube::Zone::ZoneCoordsFromBlocks(block_pos.x, block_pos.y);
     cube::Zone* zone = this->GetZone(zonePos);
@@ -117,4 +123,14 @@ void cube::World::CW_2E0B50()
 void cube::World::GenerateCreatureAppearance(cube::Creature* creature, int value)
 {
     ((void (*)(cube::World*, int, cube::Creature*))CWOffset(0x2B67B0))(&cube::GetGame()->host.world, 0, creature);
+}
+
+cube::Creature* cube::World::GetCreatureByID(__int64 id)
+{
+    return ((cube::Creature* (*)(cube::World*, __int64))CWOffset(0xE720))(this, id);
+}
+
+void* cube::World::AddCreature(cube::Creature* creature)
+{
+    return ((void* (*)(cube::World*, cube::Creature*))CWOffset(0x29D0D0))(this, creature);
 }

@@ -43,6 +43,7 @@ namespace cube {
 			ShopSupplier = 157,
 			MasterSailor = 159,
 			MasterGlider = 160,
+			ArenaMasterMaybe = 161,
 		};
 
 		enum class InventoryTab
@@ -186,6 +187,8 @@ namespace cube {
                 FloatVector3 feet_position;
                 FloatVector3 unknown_position;
                 FloatVector3 wings_position;
+
+				cube::Creature::EntityData::Appearance* Copy(cube::Creature::EntityData::Appearance* other);
             }; // end cube::Creature::EntityData::Appearance
 
 			LongVector3 position;
@@ -470,6 +473,8 @@ namespace cube {
 			float GetResistance();
 			float GetRegeneration();
 			float GetManaGeneration();
+
+			bool CanDoDamage(cube::Creature* other);
     };
 }
 

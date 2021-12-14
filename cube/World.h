@@ -99,6 +99,7 @@ namespace cube {
             // Methods
             cube::Zone* GetZone(IntVector2 position);
             cube::Zone* GetZone(int x, int y);
+            IntVector2* GetRegion(IntVector2* region, int x, int y);
             void SetBlock(LongVector3 block_pos, Block block, bool update=true);
             cube::Block* GetBlock(LongVector3 block_pos);
             cube::Block* GetBlock(uint64_t block_x, uint64_t block_y, uint64_t block_z);
@@ -115,6 +116,9 @@ namespace cube {
 
             void GenerateCreatureAppearance(cube::Creature* creature, int value = 0);
             // Todo: Reverse engineer how to spawn creatures
+            cube::Creature* GetCreatureByID(__int64 id);
+            void* AddCreature(cube::Creature* creature);
+            
     };
 }
 
