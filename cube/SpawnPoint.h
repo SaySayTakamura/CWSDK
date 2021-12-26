@@ -55,6 +55,8 @@ namespace cube
 		std::list<void*> list_938;
 		int int_948;
 		// 4 bytes padding
+
+		cube::SpawnPoint* ctor();
 	};
 }
 

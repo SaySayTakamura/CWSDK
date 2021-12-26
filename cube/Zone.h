@@ -8,6 +8,7 @@
 #include "../common/Vector2.h"
 #include "../common/Vector3.h"
 #include "Block.h"
+#include "SpawnPoint.h"
 #include <list>
 
 namespace cube {
@@ -36,6 +37,8 @@ class Zone {
         void SetBlock(IntVector3 zone_position, cube::Block block, bool update=true);
         cube::Block* GetBlock(IntVector3 zone_position);
         cube::Block GetBlockInterpolated(IntVector3 zone_position);
+
+        void AddSpawnPointMaybe(cube::SpawnPoint* spawnPoint);
     };
 }
 
