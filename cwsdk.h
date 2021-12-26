@@ -61,6 +61,7 @@
 #include "cube/QuestionWidget.h"
 #include "cube/ResolutionInfo.h"
 #include "cube/ServerUpdates.h"
+#include "cube/SpawnPoint.h"
 #include "cube/Speech.h"
 #include "cube/SpeechText.h"
 #include "cube/SpeechTextNode.h"
