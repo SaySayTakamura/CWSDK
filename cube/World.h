@@ -99,6 +99,7 @@ namespace cube {
             // Methods
             cube::Zone* GetZone(IntVector2 position);
             cube::Zone* GetZone(int x, int y);
+            cube::Zone* GetCurrentZone();
             IntVector2* GetRegion(IntVector2* region, int x, int y);
             void SetBlock(LongVector3 block_pos, Block block, bool update=true);
             cube::Block* GetBlock(LongVector3 block_pos);

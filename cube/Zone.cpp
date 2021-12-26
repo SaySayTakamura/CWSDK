@@ -163,7 +163,7 @@ cube::Block cube::Zone::GetBlockInterpolated(IntVector3 zone_position) {
     return block;
 }
 
-void cube::Zone::AddSpawnPointMaybe(cube::SpawnPoint* spawnPoint)
+void cube::Zone::AddSpawnPoint(cube::SpawnPoint* spawnPoint)
 {
     ((void (*)(cube::Zone*, cube::SpawnPoint*))CWOffset(0x119530))(this, spawnPoint);
 }

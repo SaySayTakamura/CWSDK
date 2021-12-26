@@ -13,10 +13,10 @@ namespace cube
 	public:
 		LongVector3 position;
 		float float_18;
-		int int_1C;
-		int int_20;
-		int int_24;
-		int int_28;
+		int hostility_type;
+		int race;
+		int level;
+		int cult_group; // [1 - 22] (0 = nothing)
 		int int_2C;
 		int int_30;
 		__int8 byte_34;

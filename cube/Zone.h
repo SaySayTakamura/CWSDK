@@ -38,7 +38,7 @@ class Zone {
         cube::Block* GetBlock(IntVector3 zone_position);
         cube::Block GetBlockInterpolated(IntVector3 zone_position);
 
-        void AddSpawnPointMaybe(cube::SpawnPoint* spawnPoint);
+        void AddSpawnPoint(cube::SpawnPoint* spawnPoint);
     };
 }
 

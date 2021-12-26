@@ -1,4 +1,5 @@
 #include "World.h"
+#include "World.h"
 #include "Zone.h"
 #include "constants.h"
 #include "../common/Vector3.h"
@@ -16,6 +17,18 @@ cube::Zone* cube::World::GetZone(IntVector2 position) {
 cube::Zone* cube::World::GetZone(int x, int y) {
     IntVector2 position(x, y);
     return this->GetZone(position);
+}
+
+cube::Zone* cube::World::GetCurrentZone()
+{
+    LongVector3 playerPosition = cube::GetGame()->GetPlayer()->entity_data.position;
+    LongVector3 blockPosition;
+    blockPosition.x = pydiv(playerPosition.x, cube::DOTS_PER_BLOCK);
+    blockPosition.y = pydiv(playerPosition.y, cube::DOTS_PER_BLOCK);
+    blockPosition.z = pydiv(playerPosition.z, cube::DOTS_PER_BLOCK);
+    IntVector2 zonePos = cube::Zone::ZoneCoordsFromBlocks(blockPosition.x, blockPosition.y);
+    cube::Zone* zone = this->GetZone(zonePos);
+    return zone;
 }
 
 IntVector2* cube::World::GetRegion(IntVector2* region, int x, int y)
