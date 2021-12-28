@@ -52,6 +52,11 @@ bool cube::Creature::CanDoDamage(cube::Creature* other)
     return ((bool (*)(cube::Creature*, cube::Creature*))CWOffset(0x50550))(this, other);
 }
 
+bool cube::Creature::CanTakeDamage()
+{
+    return ((bool (*)(cube::Creature*))CWOffset(0x50520))(this);
+}
+
 cube::Creature::EntityData::Appearance* cube::Creature::EntityData::Appearance::Copy(cube::Creature::EntityData::Appearance* other)
 {
     return ((cube::Creature::EntityData::Appearance* (*)(cube::Creature::EntityData::Appearance*, cube::Creature::EntityData::Appearance*))CWOffset(0x7E780))(this, other);

@@ -116,10 +116,12 @@ namespace cube {
             void CW_2E0B50();
 
             void GenerateCreatureAppearance(cube::Creature* creature, int value = 0);
-            // Todo: Reverse engineer how to spawn creatures
             cube::Creature* GetCreatureByID(__int64 id);
             void* AddCreature(cube::Creature* creature);
+
+            static bool IsValidBuildingType(unsigned int buildingType);
             
+            void DropLoot(cube::Creature* target);
     };
 }
 

@@ -475,6 +475,7 @@ namespace cube {
 			float GetManaGeneration();
 
 			bool CanDoDamage(cube::Creature* other);
+			bool CanTakeDamage();
     };
 }
 

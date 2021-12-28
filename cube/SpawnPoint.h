@@ -37,7 +37,8 @@ namespace cube
 		cube::Item item;
 		__int64 field_8AC; // No pointer, because it is not 8 offset
 		// 4 bytes padding
-		__int64 field_8B8;
+		int field_8B8;
+		int field_8BC;
 		__int64 field_8C0; // Maybe std::vector<int>
 		__int64 field_8C8; // Which is maybe a vector of abilities
 		__int64 field_8D0;

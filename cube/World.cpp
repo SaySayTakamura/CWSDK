@@ -147,3 +147,13 @@ void* cube::World::AddCreature(cube::Creature* creature)
 {
     return ((void* (*)(cube::World*, cube::Creature*))CWOffset(0x29D0D0))(this, creature);
 }
+
+bool cube::World::IsValidBuildingType(unsigned int buildingType)
+{
+    return ((bool (*)(unsigned int))CWOffset(0x25EB30))(buildingType);
+}
+
+void cube::World::DropLoot(cube::Creature* target)
+{
+    ((void (*)(cube::World*, cube::Creature*))CWOffset(0x2A6860))(this, target);
+}
