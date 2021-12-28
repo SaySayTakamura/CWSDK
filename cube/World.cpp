@@ -157,3 +157,8 @@ void cube::World::DropLoot(cube::Creature* target)
 {
     ((void (*)(cube::World*, cube::Creature*))CWOffset(0x2A6860))(this, target);
 }
+
+void cube::World::DropItem(cube::Item* item, LongVector3* position)
+{
+    ((void (*)(cube::World*, cube::Item*, LongVector3*))CWOffset(0x2A5B70))(this, item, position);
+}

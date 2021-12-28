@@ -476,6 +476,8 @@ namespace cube {
 
 			bool CanDoDamage(cube::Creature* other);
 			bool CanTakeDamage();
+
+			void DropItem(cube::Item* item);
     };
 }
 

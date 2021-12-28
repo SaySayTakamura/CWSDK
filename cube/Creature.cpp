@@ -57,6 +57,21 @@ bool cube::Creature::CanTakeDamage()
     return ((bool (*)(cube::Creature*))CWOffset(0x50520))(this);
 }
 
+void cube::Creature::DropItem(cube::Item* item)
+{
+    cube::Interaction dropItem(cube::Interaction::InteractionType::Drop);
+    dropItem.SetItem(*item);
+    dropItem.position = IntVector3(0, 0, 0);
+    dropItem.creature_id_maybe = 0;
+    dropItem.padding_probably = 0;
+    dropItem.probably_padding_AC = 0;
+    dropItem.field_B8 = 0;
+    dropItem.field_C0 = 0;
+    dropItem.field_C6 = 0;
+
+    this->interactions.push_back(dropItem);
+}
+
 cube::Creature::EntityData::Appearance* cube::Creature::EntityData::Appearance::Copy(cube::Creature::EntityData::Appearance* other)
 {
     return ((cube::Creature::EntityData::Appearance* (*)(cube::Creature::EntityData::Appearance*, cube::Creature::EntityData::Appearance*))CWOffset(0x7E780))(this, other);

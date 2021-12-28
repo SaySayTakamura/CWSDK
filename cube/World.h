@@ -122,6 +122,7 @@ namespace cube {
             static bool IsValidBuildingType(unsigned int buildingType);
             
             void DropLoot(cube::Creature* target);
+            void DropItem(cube::Item* item, LongVector3* position);
     };
 }
 
