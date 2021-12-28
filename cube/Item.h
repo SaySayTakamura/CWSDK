@@ -41,7 +41,9 @@ class Item {
         int GetArtifactType();
         int GetEffectiveRarity(IntVector2* region);
         int GetPrice();
-        bool CanBeEquippedByClass(int classType);
+        bool ClassCanWearItem(int classType);
+
+        bool IsValidEquipmentForCreature(cube::Creature* creature, int itemCategory);
 
         bool IsPlusItem();
         void ConvertToPlusItem();

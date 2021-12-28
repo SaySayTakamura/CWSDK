@@ -58,9 +58,24 @@ int cube::Item::GetPrice()
 	return ((int (*)(cube::Item*))CWOffset(0x109D30))(this);
 }
 
-bool cube::Item::CanBeEquippedByClass(int classType)
+bool cube::Item::ClassCanWearItem(int classType)
 {
-	return ((int (*)(cube::Item*, int))CWOffset(0x109720))(this, classType) == 0 ? false : true;
+	return ((bool(*)(cube::Item*, int))CWOffset(0x1094D0))(this, classType);
+}
+
+bool cube::Item::IsValidEquipmentForCreature(cube::Creature* creature, int itemCategory)
+{
+	if (this->category != itemCategory)
+	{
+		return false;
+	}
+
+	if (creature->entity_data.hostility_type != 0 || this->ClassCanWearItem(creature->entity_data.classType))
+	{
+		return true;
+	}
+
+	return false;
 }
 
 bool cube::Item::IsPlusItem()
