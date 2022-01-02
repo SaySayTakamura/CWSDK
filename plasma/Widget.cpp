@@ -91,9 +91,9 @@ bool plasma::Widget::IsSquareHovered(FloatVector2* mouse, int x, int y, int widt
 	return true;
 }
 
-void plasma::Widget::CW_32B0C0()
+bool plasma::Widget::CW_32B0C0()
 {
-	((void (*)(plasma::Widget*))CWOffset(0x32B0C0))(this);
+	((bool (*)(plasma::Widget*))CWOffset(0x32B0C0))(this);
 }
 
 plasma::Widget* plasma::Widget::CreateCopy(Node* node)

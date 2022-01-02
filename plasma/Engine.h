@@ -24,7 +24,8 @@ namespace plasma {
             __int64 field_178;
             FloatVector2 mouse_position;
             FloatVector2 previous_mouse_position;
-            _BYTE gap190[255];
+            float float_190;
+            _BYTE gap194[251];
             char end;
         };
 }
