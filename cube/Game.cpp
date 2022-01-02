@@ -107,6 +107,27 @@ void cube::Game::MaybeLoadCharacter(int character_slot, cube::Creature* creature
     ((void(*)(cube::Game*, int, cube::Creature*))CWOffset(0x9BB20))(this, character_slot, creature);
 }
 
+void cube::Game::DeleteSelectedCharacter()
+{
+    ((void (*)(cube::Game*))CWOffset(0x9DEA0))(this);
+}
+
+void cube::Game::DeleteCharacter(int index)
+{
+    this->gui.character_selection_hover_index = index;
+    this->DeleteSelectedCharacter();
+}
+
+void cube::Game::GoToStartMenu()
+{
+    ((void (*)(cube::Game*))CWOffset(0x9FDF0))(this);
+}
+
+void cube::Game::Exit()
+{
+    this->shutdown = 1;
+}
+
 void cube::Game::AnnounceReceiptOfItem(cube::Item* item, int count, cube::Creature* creature)
 {
     if (creature == nullptr)

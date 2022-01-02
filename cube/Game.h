@@ -303,6 +303,11 @@ namespace cube {
             void PlaySoundEffect(SoundEffect sound_id, float volume = 1.0, float speed = 1.0, bool unkbool = true);
 
             void MaybeLoadCharacter(int character_slot, cube::Creature* creature);
+            void DeleteSelectedCharacter();
+            void DeleteCharacter(int index);
+
+            void GoToStartMenu();
+            void Exit();
 
             void AnnounceReceiptOfItem(cube::Item* item, int count = 1, cube::Creature* creature = nullptr);
             // Might return bool

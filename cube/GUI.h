@@ -55,7 +55,9 @@ namespace cube {
             plasma::Node* button2_node_1;
             plasma::Node* smallbutton_node_1;
             plasma::Node* button_node_3;
-            _BYTE gapE0[8];
+            _BYTE gapE0[4];
+            bool bool_E4;
+            _BYTE gapE5[3]; // 3 bytes padding
             plasma::Node* world_creation_node;
             plasma::Node* button_node_4;
             plasma::Node* worldseed_node;
@@ -199,7 +201,7 @@ namespace cube {
             plasma::Node* friendlifebar_node;
             plasma::Node* staticlifebar_node;
             plasma::Node* neutrallifebar_node;
-            int field_5A8;
+            int character_selection_hover_index;
             _BYTE gap_5AC[4];
             std::list<void*> list_5B0_nodesize_0x18;
             cube::Game* game;
