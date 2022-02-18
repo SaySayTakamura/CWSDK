@@ -1,8 +1,4 @@
 #include "SpawnPoint.h"
-#include "SpawnPoint.h"
-#include "SpawnPoint.h"
-#include "SpawnPoint.h"
-#include "SpawnPoint.h"
 #include "cwsdk.h"
 
 cube::SpawnPoint* cube::SpawnPoint::ctor()
