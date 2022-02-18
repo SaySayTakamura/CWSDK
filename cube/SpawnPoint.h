@@ -19,8 +19,8 @@ namespace cube
 		int cult_group; // [1 - 22] (0 = nothing)
 		int int_2C;
 		int int_30;
-		__int8 byte_34;
-		__int8 byte_35;
+		__int8 classType;
+		__int8 specialization;
 		long long long_38;
 		__int64 field_40;
 		int int_48;
@@ -47,7 +47,7 @@ namespace cube
 		__int64 field_8E0; // Maybe std::vector<int>
 		__int64 field_8E8; // Which is maybe a vector of abilities
 		__int64 field_8F0;
-		IntVector2 intVector_8F8;
+		IntVector2 zone_position;
 		std::map<void*, void*> map_900;
 		std::map<void*, void*> map_910;
 		int int_920;
@@ -58,6 +58,24 @@ namespace cube
 		// 4 bytes padding
 
 		cube::SpawnPoint* ctor();
+
+		/*
+		* BossType ids:
+		* 1-3: Basic NPC types, generated based on position and id
+		* 7: Sorcerer / Wizard (depending on position)
+		* 22: Witch
+		* Anything else: random race returned
+		*/
+		void SetMageTowerBossRace(int zone_x, int zone_y, int bossType);
+
+		/*
+		* Only call this after all settings are set
+		*/
+		void Generate();
+
+	private:
+		void SetSpawnPointAppearance(int* race, cube::Creature::EntityData::Appearance* appearance, void* a3, bool a4);
+		void SetSpawnPointData(int hostility_type, int race, int level, int appearance_flags, int cult_group, _BYTE* classType, _BYTE* specialization, cube::Equipment* equipment, std::vector<int>* abilities_maybe, int* a10, std::vector<int>* other_abilities_maybe, std::vector<std::vector<cube::ItemStack>>* inventory_tabs);
 	};
 }
 
