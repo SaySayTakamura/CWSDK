@@ -109,7 +109,7 @@ namespace plasma {
 
             static bool IsSquareHovered(FloatVector2* mouse, int x, int y, int width, int height);
 
-            void CW_32B0C0();
+            bool CW_32B0C0();
 
             Widget* CreateCopy(Node* node);
             Widget* Copy(Widget* src, Node* node);

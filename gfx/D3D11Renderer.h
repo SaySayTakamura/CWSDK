@@ -3,6 +3,7 @@
 
 #include "../IDA/types.h"
 #include "Renderer.h"
+#include "cube/Creature.h"
 
 namespace gfx {
 class D3D11Renderer : public Renderer {
@@ -13,6 +14,7 @@ class D3D11Renderer : public Renderer {
         char end;
 
         void RemeshZone(int x, int y);
+        void CW_DB630(cube::Creature::AnimationState* animation_state, float x, float y);
     };
 }
 

@@ -384,7 +384,8 @@ namespace cube {
 			cube::Creature::EntityData entity_data;
 			std::list<cube::Creature::Buff> buffs;
 			void* field_990;
-			void* field_998;
+			float float_998;
+			float float_99C;
 			float stamina;
 			float field_9A4;
 			float field_9A8;
@@ -411,7 +412,7 @@ namespace cube {
 			_BYTE gapB28[12];
 			int field_B34;
 			int field_B38;
-			int field_B3C;
+			float float_B3C;
 			_BYTE gapB40[12];
 			int field_B4C;
 			int field_B50;
