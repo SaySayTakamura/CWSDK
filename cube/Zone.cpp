@@ -163,6 +163,21 @@ cube::Block cube::Zone::GetBlockInterpolated(IntVector3 zone_position) {
     return block;
 }
 
+LongVector3* cube::Zone::GetWorldPosition(LongVector3* result, int x, int y)
+{
+    return ((LongVector3* (*)(cube::Zone*, LongVector3*, int x, int y))CWOffset(0x31C0E0))(this, result, x, y);
+}
+
+LongVector3* cube::Zone::GetWorldPosition(LongVector3* result, int x, int y, int z)
+{
+    return ((LongVector3 * (*)(cube::Zone*, LongVector3*, int x, int y, int z))CWOffset(0x31BD90))(this, result, x, y, z);
+}
+
+bool cube::Zone::IsPositionFree(int x, int y, int z)
+{
+    return ((bool (*)(cube::Zone*, int x, int y, int z))CWOffset(0x1299A0))(this, x, y, z);
+}
+
 void cube::Zone::AddSpawnPoint(cube::SpawnPoint* spawnPoint)
 {
     ((void (*)(cube::Zone*, cube::SpawnPoint*))CWOffset(0x119530))(this, spawnPoint);

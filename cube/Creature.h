@@ -43,7 +43,7 @@ namespace cube {
 			ShopSupplier = 157,
 			MasterSailor = 159,
 			MasterGlider = 160,
-			ArenaMasterMaybe = 161,
+			ArenaMaster = 161,
 		};
 
 		enum class InventoryTab
@@ -243,11 +243,12 @@ namespace cube {
 			_BYTE gap185[7];
 			char interaction_state;
 			_BYTE gap18D[59];
-			cube::Item unk_item;
+			cube::Item last_special_item;
 			cube::Equipment equipment;
 			char name[16];
 			__int64 field_958;
-			char field_960;
+			char cult_group;
+			// 3 bytes padding (most likely)
 			char field_961;
 			char field_962;
 			char field_963;

@@ -38,6 +38,11 @@ class Zone {
         cube::Block* GetBlock(IntVector3 zone_position);
         cube::Block GetBlockInterpolated(IntVector3 zone_position);
 
+        LongVector3* GetWorldPosition(LongVector3* result, int x, int y);
+        LongVector3* GetWorldPosition(LongVector3* result, int x, int y, int z);
+
+        bool IsPositionFree(int x, int y, int z);
+
         void AddSpawnPoint(cube::SpawnPoint* spawnPoint);
     };
 }

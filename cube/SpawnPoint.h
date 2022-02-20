@@ -12,8 +12,8 @@ namespace cube
 	{
 	public:
 		LongVector3 position;
-		float float_18;
-		int hostility_type;
+		float yaw; // Where it is looking
+		int hostility_type; // EntityBehaviour
 		int race;
 		int level;
 		int cult_group; // [1 - 22] (0 = nothing)
@@ -21,32 +21,28 @@ namespace cube
 		int int_30;
 		__int8 classType;
 		__int8 specialization;
-		long long long_38;
-		__int64 field_40;
+		long long creature_id;
+		__int64 field_40; // Linked creature id
 		int int_48;
-		int int_4C;
+		int some_state;
 		cube::Creature::EntityData::Appearance appearance;
 		__int8 byte_100;
 		__int8 byte_101;
 		_BYTE gap_102[14];
 		cube::Equipment equipment;
-		__int64 field_7F0; // Maybe std::vector<std::vector<cube::ItemStack>>
-		__int64 field_7F8; // Which is the inventory
-		__int64 field_800;
+		std::vector<std::vector<cube::ItemStack>> inventory_tabs;
 		__int64 field_808;
 		cube::Item item;
-		__int64 field_8AC; // No pointer, because it is not 8 offset
+		int gold;
+		int field_8B0;
+		//__int64 field_8AC; // No pointer, because it is not 8 offset
 		// 4 bytes padding
 		int field_8B8;
-		int field_8BC;
-		__int64 field_8C0; // Maybe std::vector<int>
-		__int64 field_8C8; // Which is maybe a vector of abilities
-		__int64 field_8D0;
+		int current_ability;
+		std::vector<int> vector_8C0; // Maybe a vector of abilities
 		int int_8D8;
 		// 4 bytes padding
-		__int64 field_8E0; // Maybe std::vector<int>
-		__int64 field_8E8; // Which is maybe a vector of abilities
-		__int64 field_8F0;
+		std::vector<int> vector_8E0; // Maybe a vector of abilities
 		IntVector2 zone_position;
 		std::map<void*, void*> map_900;
 		std::map<void*, void*> map_910;
@@ -65,17 +61,9 @@ namespace cube
 		* 7: Sorcerer / Wizard (depending on position)
 		* 22: Witch
 		* Anything else: random race returned
+		* TODO: Move to factory
 		*/
 		void SetMageTowerBossRace(int zone_x, int zone_y, int bossType);
-
-		/*
-		* Only call this after all settings are set
-		*/
-		void Generate();
-
-	private:
-		void SetSpawnPointAppearance(int* race, cube::Creature::EntityData::Appearance* appearance, void* a3, bool a4);
-		void SetSpawnPointData(int hostility_type, int race, int level, int appearance_flags, int cult_group, _BYTE* classType, _BYTE* specialization, cube::Equipment* equipment, std::vector<int>* abilities_maybe, int* a10, std::vector<int>* other_abilities_maybe, std::vector<std::vector<cube::ItemStack>>* inventory_tabs);
 	};
 }
 
