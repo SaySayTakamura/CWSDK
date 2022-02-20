@@ -210,11 +210,17 @@ class GenericMod {
         Priority OnChunkRemeshedPriority = NormalPriority;
         virtual void OnChunkRemeshed(cube::Zone* zone) {}
 
+        enum DeathType : __int32 {
+            COMBAT = 0,
+            DROWN,
+            FALL
+        };
+
         Priority OnPlayerDeathPriority = NormalPriority;
-        virtual void OnPlayerDeath(cube::Game* game, cube::Creature* player) {}
+        virtual void OnPlayerDeath(cube::Game* game, cube::Creature* player, DeathType type) {}
 
         Priority OnCreatureDeathPriority = NormalPriority;
-        virtual void OnCreatureDeath(cube::Game* game, cube::Creature* creature) {}
+        virtual void OnCreatureDeath(cube::Game* game, cube::Creature* creature, cube::Creature* attacker) {}
 
         #include "VtablePadding.h"
 };
