@@ -222,6 +222,9 @@ class GenericMod {
         Priority OnCreatureDeathPriority = NormalPriority;
         virtual void OnCreatureDeath(cube::Game* game, cube::Creature* creature, cube::Creature* attacker) {}
 
+        Priority OnGameUpdatePriority = NormalPriority;
+        virtual void OnGameUpdate(cube::Game* game) {}
+
         #include "VtablePadding.h"
 };
 
