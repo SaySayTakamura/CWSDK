@@ -20,6 +20,11 @@ void plasma::Node::Translate(float baseX, float baseY, float offsetX, float offs
 	FloatVector2 offset(offsetX, offsetY);
 	this->Translate(&base, &offset);
 }
+void plasma::Node::Translate(float x, float y)
+{
+	this->Translate(0, 0, x, y);
+}
+
 plasma::Node* plasma::Node::Draw(u32 flags) {
 	return ((plasma::Node* (*)(plasma::Node*, u32))CWOffset(0x330B20))(this, flags);
 }

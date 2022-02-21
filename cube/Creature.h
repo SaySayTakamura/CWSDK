@@ -475,9 +475,13 @@ namespace cube {
 			float GetResistance();
 			float GetRegeneration();
 			float GetManaGeneration();
+			int GetTotalXPEarned();
+			int GetXPForLevelup();
 
 			bool CanDoDamage(cube::Creature* other);
 			bool CanTakeDamage();
+
+			void UpdateLevelAndSkills();
 
 			void DropItem(cube::Item* item);
     };

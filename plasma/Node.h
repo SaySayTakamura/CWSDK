@@ -44,6 +44,7 @@ namespace plasma {
 
             void Translate(FloatVector2* base, FloatVector2* offset);
             void Translate(float baseX, float baseY, float offsetX, float offsetY);
+            void Translate(float x, float y);
 
             plasma::Node* Draw(u32 flags);
 

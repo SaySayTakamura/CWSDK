@@ -47,6 +47,16 @@ float cube::Creature::GetManaGeneration() {
     return ((float (*)(cube::Creature*))CWOffset(0x5F8D0))(this);
 }
 
+int cube::Creature::GetTotalXPEarned()
+{
+    return ((int (*)(cube::Creature*))CWOffset(0x666A0))(this);
+}
+
+int cube::Creature::GetXPForLevelup()
+{
+    return ((int(*)(int))CWOffset(0x5FA80))(this->entity_data.level);
+}
+
 bool cube::Creature::CanDoDamage(cube::Creature* other)
 {
     return ((bool (*)(cube::Creature*, cube::Creature*))CWOffset(0x50550))(this, other);
@@ -55,6 +65,11 @@ bool cube::Creature::CanDoDamage(cube::Creature* other)
 bool cube::Creature::CanTakeDamage()
 {
     return ((bool (*)(cube::Creature*))CWOffset(0x50520))(this);
+}
+
+void cube::Creature::UpdateLevelAndSkills()
+{
+    ((void (*)(cube::Creature*))CWOffset(0x66850))(this);
 }
 
 void cube::Creature::DropItem(cube::Item* item)
