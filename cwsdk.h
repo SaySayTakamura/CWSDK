@@ -1,7 +1,6 @@
 #ifndef CWMODS_H
 #define CWMODS_H
 
-#define MODLOADER 0
 #define EXPORT extern "C" __declspec(dllexport) __declspec(noinline)
 
 #include <cstdint>

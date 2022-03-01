@@ -47,6 +47,21 @@ float cube::Creature::GetManaGeneration() {
     return ((float (*)(cube::Creature*))CWOffset(0x5F8D0))(this);
 }
 
+float cube::Creature::GetDamage()
+{
+    return ((float (*)(cube::Creature*))CWOffset(0x50370))(this);
+}
+
+int cube::Creature::GetCastingDelay(int ability_id)
+{
+    return ((int (*)(cube::Creature*, int))CWOffset(0x4EAD0))(this, ability_id);
+}
+
+int cube::Creature::GetCastingDuration(int ability_id)
+{
+    return ((int (*)(cube::Creature*, int ability_id))CWOffset(0x660D0))(this, ability_id);
+}
+
 int cube::Creature::GetTotalXPEarned()
 {
     return ((int (*)(cube::Creature*))CWOffset(0x666A0))(this);
@@ -65,6 +80,11 @@ bool cube::Creature::CanDoDamage(cube::Creature* other)
 bool cube::Creature::CanTakeDamage()
 {
     return ((bool (*)(cube::Creature*))CWOffset(0x50520))(this);
+}
+
+bool cube::Creature::IsBlocking()
+{
+    return ((bool (*)(cube::Creature*))CWOffset(0x5ED30))(this);
 }
 
 void cube::Creature::UpdateLevelAndSkills()

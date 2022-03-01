@@ -43,9 +43,34 @@ float cube::Item::GetHP(cube::Creature * creature)
 	return ((float (*)(cube::Item*, cube::Creature*))CWOffset(0x1097B0))(this, creature);
 }
 
+float cube::Item::GetRegeneration(cube::Creature* creature)
+{
+	return ((float (*)(cube::Item*, cube::Creature*))CWOffset(0x109F30))(this, creature);
+}
+
+float cube::Item::GetResistance(cube::Creature* creature)
+{
+	return ((float (*)(cube::Item*, cube::Creature*))CWOffset(0x10A1E0))(this, creature);
+}
+
+float cube::Item::GetHaste(cube::Creature* creature)
+{
+	return ((float (*)(cube::Item*, cube::Creature*))CWOffset(0x10A490))(this, creature);
+}
+
+float cube::Item::GetPower(cube::Creature* creature)
+{
+	return ((float (*)(cube::Item*, cube::Creature*))CWOffset(0x10AD90))(this, creature);
+}
+
+float cube::Item::GetCritical(cube::Creature* creature)
+{
+	return ((float (*)(cube::Item*, cube::Creature*))CWOffset(0x1090F0))(this, creature);
+}
+
 int cube::Item::GetArtifactType()
 {
-	return ((int (*)(cube::Item*))CWOffset(0x108D50))(this);
+	return ((int (*)(cube::Item*))CWOffset(0x108EF0))(this);
 }
 
 int cube::Item::GetEffectiveRarity(IntVector2* region)
@@ -53,14 +78,35 @@ int cube::Item::GetEffectiveRarity(IntVector2* region)
 	return ((int (*)(cube::Item*, IntVector2*))CWOffset(0x109720))(this, region);
 }
 
-int cube::Item::GetPrice()
+int cube::Item::GetBuyingPrice()
 {
 	return ((int (*)(cube::Item*))CWOffset(0x109D30))(this);
+}
+
+int cube::Item::GetSellingPrice()
+{
+	return ((int (*)(cube::Item*))CWOffset(0x10A390))(this);
 }
 
 bool cube::Item::ClassCanWearItem(int classType)
 {
 	return ((bool(*)(cube::Item*, int))CWOffset(0x1094D0))(this, classType);
+}
+
+float cube::Item::GetGearRarityModifier(cube::Creature* creature, signed int spirits)
+{
+	return ((float (*)(cube::Item*, cube::Creature*, signed int))CWOffset(0x109C50))(this, creature, spirits);
+}
+
+float cube::Item::GetPowerOfSpirits(cube::Creature* creature)
+{
+	//C++ implementation of 0x10AD50
+	return this->GetPower(creature) - this->GetPowerWithoutSpirits(creature);
+}
+
+float cube::Item::GetPowerWithoutSpirits(cube::Creature* creature)
+{
+	return ((float (*)(cube::Item*, cube::Creature*))CWOffset(0x108F20))(this, creature);
 }
 
 bool cube::Item::IsValidEquipmentForCreature(cube::Creature* creature, int itemCategory)

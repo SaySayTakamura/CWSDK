@@ -36,13 +36,25 @@ class Item {
         cube::Item* ctor();
 
         void Copy(cube::Item* src);
+
         float GetArmor(cube::Creature* creature);
         float GetHP(cube::Creature* creature);
+        float GetRegeneration(cube::Creature* creature);
+        float GetResistance(cube::Creature* creature);
+        float GetHaste(cube::Creature* creature);
+        float GetPower(cube::Creature* creature);
+        float GetCritical(cube::Creature* creature);
+
+        float GetGearRarityModifier(cube::Creature* creature, signed int spirits);
+        float GetPowerOfSpirits(cube::Creature* creature);
+        float GetPowerWithoutSpirits(cube::Creature* creature);
+
         int GetArtifactType();
         int GetEffectiveRarity(IntVector2* region);
-        int GetPrice();
-        bool ClassCanWearItem(int classType);
+        int GetBuyingPrice();
+        int GetSellingPrice();
 
+        bool ClassCanWearItem(int classType);
         bool IsValidEquipmentForCreature(cube::Creature* creature, int itemCategory);
 
         bool IsPlusItem();

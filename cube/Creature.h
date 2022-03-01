@@ -57,7 +57,7 @@ namespace cube {
 		};
 
 
-		enum class EntityBehaviour
+		enum EntityBehaviour : int
 		{
 			Player = 0,
 			Hostile,
@@ -475,11 +475,18 @@ namespace cube {
 			float GetResistance();
 			float GetRegeneration();
 			float GetManaGeneration();
+
+			float GetDamage();
+			int GetCastingDelay(int ability_id = -1);
+			int GetCastingDuration(int ability_id = -1);
+
 			int GetTotalXPEarned();
 			int GetXPForLevelup();
 
 			bool CanDoDamage(cube::Creature* other);
 			bool CanTakeDamage();
+
+			bool IsBlocking();
 
 			void UpdateLevelAndSkills();
 
