@@ -33,6 +33,7 @@ void WriteByte(void* location, char val){
     VirtualProtect(location, 1, dwOldProtection, &dwOldProtection);
 }
 
+
 #ifndef MODLOADER
 void WriteFarJMP(void* source, void* destination) {
     DWORD dwOldProtection;
@@ -63,4 +64,4 @@ __declspec(noinline) void operator delete(void* ptr) noexcept {
 __declspec(noinline) void operator delete[](void* ptr) noexcept {
     ((void(*)(void*))CWOffset(0x392BE8))(ptr);
 }
-#endif // !1
+#endif

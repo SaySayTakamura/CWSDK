@@ -224,6 +224,15 @@ class GenericMod {
         Priority OnGameUpdatePriority = NormalPriority;
         virtual void OnGameUpdate(cube::Game* game) {}
 
+        Priority OnGetItemBuyingPricePriority = NormalPriority;
+        virtual void OnGetItemBuyingPrice(cube::Item* item, int* price) {}
+
+        Priority OnGetItemSellingPricePriority = NormalPriority;
+        virtual void OnGetItemSellingPrice(cube::Item* item, int* price) {}
+        
+        //Priority OnGetItemRarityModifierPriority = NormalPriority;
+        //virtual void OnGetItemRarityModifier(cube::Item* item, cube::Creature* creature, int spirits, float* modifier) {}
+
         #include "VtablePadding.h"
 };
 
