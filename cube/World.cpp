@@ -162,7 +162,7 @@ float cube::World::GetZoneStructureHeight(int x, int y)
 
 int cube::World::GetRegionBiomeType(int region_x, int region_y)
 {
-    return ((int (*)(cube::World*, int, int))CWOffset(0x2B9080))(this, x, y);
+    return ((int (*)(cube::World*, int, int))CWOffset(0x2B9080))(this, region_x, region_x);
 }
 
 void cube::World::DropLoot(cube::Creature* target)

@@ -230,6 +230,9 @@ class GenericMod {
 
         Priority OnGetItemSellingPricePriority = NormalPriority;
         virtual void OnGetItemSellingPrice(cube::Item* item, int* price) {}
+
+        Priority OnCreatureCanEquipItemPriority = NormalPriority;
+        virtual void OnCreatureCanEquipItem(cube::Creature* creature, cube::Item* item, bool* equipable) {}
         
         //Priority OnGetItemRarityModifierPriority = NormalPriority;
         //virtual void OnGetItemRarityModifier(cube::Item* item, cube::Creature* creature, int spirits, float* modifier) {}
