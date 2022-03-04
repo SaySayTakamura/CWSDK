@@ -120,6 +120,8 @@ namespace cube {
             void* AddCreature(cube::Creature* creature);
 
             static bool IsValidBuildingType(unsigned int buildingType);
+            float GetZoneStructureHeight(int zone_x, int zone_y);
+            int GetRegionBiomeType(int region_x, int region_y);
             
             void DropLoot(cube::Creature* target);
             void DropItem(cube::Item* item, LongVector3* position);

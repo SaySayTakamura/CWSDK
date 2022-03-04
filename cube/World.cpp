@@ -1,5 +1,7 @@
 #include "World.h"
 #include "World.h"
+#include "World.h"
+#include "World.h"
 #include "Zone.h"
 #include "constants.h"
 #include "../common/Vector3.h"
@@ -151,6 +153,16 @@ void* cube::World::AddCreature(cube::Creature* creature)
 bool cube::World::IsValidBuildingType(unsigned int buildingType)
 {
     return ((bool (*)(unsigned int))CWOffset(0x25EB30))(buildingType);
+}
+
+float cube::World::GetZoneStructureHeight(int x, int y)
+{
+    return ((float (*)(cube::World*, int, int))CWOffset(0x35EA0))(this, x, y);
+}
+
+int cube::World::GetRegionBiomeType(int region_x, int region_y)
+{
+    return ((int (*)(cube::World*, int, int))CWOffset(0x2B9080))(this, x, y);
 }
 
 void cube::World::DropLoot(cube::Creature* target)
