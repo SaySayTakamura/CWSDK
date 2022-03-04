@@ -59,6 +59,7 @@
 #include "cube/Projectile.h"
 #include "cube/QuestionWidget.h"
 #include "cube/ResolutionInfo.h"
+#include "cube/SaveData.h"
 #include "cube/ServerUpdates.h"
 #include "cube/SpawnPoint.h"
 #include "cube/SpawnPointFactory.h"

@@ -491,6 +491,8 @@ namespace cube {
 			void UpdateLevelAndSkills();
 
 			void DropItem(cube::Item* item);
+
+			void ClearInventoryGear();
     };
 }
 

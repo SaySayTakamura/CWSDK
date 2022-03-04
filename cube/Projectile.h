@@ -15,7 +15,7 @@ class Projectile {
             unk3 = 3,
             Fireball = 4,
             ArrowOrBoomerang = 5, // Boomerang if the projectile's GUID is valid creature and said creature has a boomerang equipped in the right weapon slot.
-            unk6 = 6,
+            Puddle = 6,
             IronDeposit = 7,
             Eagle = 8,
             Airship = 9,

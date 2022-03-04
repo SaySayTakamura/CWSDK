@@ -18,6 +18,7 @@ class Equipment {
 		cube::Item pet;
 
 		cube::Equipment* Copy(cube::Equipment* other);
+		void Clear();
     };
 }
 

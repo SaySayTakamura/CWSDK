@@ -107,7 +107,7 @@ add_library (CWSDK
     "cube/StartMenuWidget.cpp"
     "cube/SpawnPoint.h"
     cube/SpawnPoint.cpp
- "cube/SpawnPointFactory.h" "cube/SpawnPointFactory.cpp")
+ "cube/SpawnPointFactory.h" "cube/SpawnPointFactory.cpp" "cube/SaveData.h")
 target_link_libraries(CWSDK winmm.lib)
 target_include_directories (CWSDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_include_directories (CWSDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/CWSDK)

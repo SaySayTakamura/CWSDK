@@ -14,6 +14,25 @@
 namespace cube {
 class Zone {
     public:
+
+        enum RegionType: int
+        {
+            Plains = 0,
+            Ocean = 1,
+            Hills = 2,
+            Woodlands = 3,
+            Jungle = 4,
+            Darkwoods = 5,
+            SnowForest = 6,
+            Mountains = 7,
+            Wetlands = 8,
+            Desert = 9,
+            Savannah = 0x0A,
+            Snowlands = 0x0B,
+            Deadlands = 0x0C,
+            Firelands = 0x0D,
+        };
+
         virtual ~Zone();
 
         cube::World* world;

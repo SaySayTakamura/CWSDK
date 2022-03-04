@@ -111,3 +111,8 @@ cube::Creature::EntityData::Appearance* cube::Creature::EntityData::Appearance::
 {
     return ((cube::Creature::EntityData::Appearance* (*)(cube::Creature::EntityData::Appearance*, cube::Creature::EntityData::Appearance*))CWOffset(0x7E780))(this, other);
 }
+
+void cube::Creature::ClearInventoryGear()
+{
+    this->inventory_tabs.at(0).clear();
+}

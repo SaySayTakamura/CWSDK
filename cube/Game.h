@@ -312,6 +312,8 @@ namespace cube {
             void AnnounceReceiptOfItem(cube::Item* item, int count = 1, cube::Creature* creature = nullptr);
             // Might return bool
             char GeneratePlayerStarterGear();
+
+            static void SetRestrictedSpawnRegions(bool enabled);
         };
 }
 
