@@ -238,15 +238,21 @@ namespace cube {
 			float float_184;
 			float MP;
 			float stealth;
-			_BYTE gap180[4];
+			float float_180;
 			char field_184;
-			_BYTE gap185[7];
+			//_BYTE gap185[7];
+			int field_188;
 			char interaction_state;
-			_BYTE gap18D[59];
+			//_BYTE gap18D[59];
+			long long paired_entity_id;
+			long long some_creature_id;
+			IntVector2 some_zone_position; // Maybe last spawned zone position
+			LongVector3 some_position;
+			IntVector2 some_other_position; // Maybe region position??
 			cube::Item last_special_item;
 			cube::Equipment equipment;
 			char name[16];
-			__int64 field_958;
+			long long steam_id;
 			char cult_group;
 			// 3 bytes padding (most likely)
 			char field_961;
