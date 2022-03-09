@@ -19,7 +19,7 @@ namespace cube {
 		// Todo: Add enums to the correct variables
 		// Todo: Add race enum
 		// Todo: Move cube::Creature::EntityData and cube::Creature::Appearance to different files
-		enum class ClassType
+		enum ClassType : int
 		{
 			Warrior = 1,
 			Ranger,

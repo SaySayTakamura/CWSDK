@@ -1,6 +1,7 @@
 #ifndef CWMODS_H
 #define CWMODS_H
 
+//#define MODLOADER 1
 #define EXPORT extern "C" __declspec(dllexport) __declspec(noinline)
 
 #include <cstdint>
@@ -236,6 +237,9 @@ class GenericMod {
 
         Priority OnItemGetGoldBagValuePriority = NormalPriority;
         virtual void OnItemGetGoldBagValue(cube::Item* item, int* gold) {}
+
+        Priority OnClassCanWearItemPriority = NormalPriority;
+        virtual void OnClassCanWearItem(cube::Item* item, bool* wearable) {}
         
         //Priority OnGetItemRarityModifierPriority = NormalPriority;
         //virtual void OnGetItemRarityModifier(cube::Item* item, cube::Creature* creature, int spirits, float* modifier) {}
