@@ -239,7 +239,7 @@ class GenericMod {
         virtual void OnItemGetGoldBagValue(cube::Item* item, int* gold) {}
 
         Priority OnClassCanWearItemPriority = NormalPriority;
-        virtual void OnClassCanWearItem(cube::Item* item, bool* wearable) {}
+        virtual void OnClassCanWearItem(cube::Item* item, int classType, bool* wearable) {}
         
         //Priority OnGetItemRarityModifierPriority = NormalPriority;
         //virtual void OnGetItemRarityModifier(cube::Item* item, cube::Creature* creature, int spirits, float* modifier) {}
