@@ -35,7 +35,7 @@ cube::Zone* cube::World::GetCurrentZone()
 
 IntVector2* cube::World::GetRegion(IntVector2* region, int x, int y)
 {
-    ((IntVector2 * (*)(cube::World*, IntVector2*, int, int))CWOffset(0x2ADA20))(this, region, x, y);
+    return ((IntVector2 * (*)(cube::World*, IntVector2*, int, int))CWOffset(0x2ADA20))(this, region, x, y);
 }
 
 void cube::World::SetBlock(LongVector3 block_pos, Block block, bool update) {
