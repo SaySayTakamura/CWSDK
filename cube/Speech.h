@@ -28,6 +28,7 @@ class Speech {
 
         std::wstring* GenerateItemName(std::wstring* string, cube::Item* item);
         std::wstring* GetRaceName(std::wstring* str, int race);
+        std::wstring* GetBiomeName(std::wstring* str, int biome_type);
     };
 }
 
