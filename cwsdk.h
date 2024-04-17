@@ -116,6 +116,7 @@
 #include "plasma/TextShape.h"
 
 #include "steam/steam_api_common.h"
+#include <modhelper/commands/CommandsManager.h>
 
 void* CWBase();
 void* CWOffset(size_t offset);
@@ -144,6 +145,8 @@ class GenericMod {
             LowPriority = 3,
             VeryLowPriority = 4
         };
+
+        CommandsManager cmd_manager = CommandsManager();
 
         // Used for registering to mod callbacks. The callbacks are defined in the CWSDK.
         virtual void Initialize() {}
