@@ -113,7 +113,6 @@ void plasma::Node::CW_3356D0()
 {
 	((void (*)(plasma::Node*))CWOffset(0x3356D0))(this);
 }
-
 void plasma::Node::SetTransformation(plasma::Transformation* transformation)
 {
 	((void (*)(plasma::Node*, plasma::Transformation*))CWOffset(0x334D30))(this, transformation);
@@ -122,4 +121,35 @@ void plasma::Node::SetTransformation(plasma::Transformation* transformation)
 void plasma::Node::SetDisplay(plasma::Display* display)
 {	
 	((void (*)(plasma::Node*, plasma::Display*))CWOffset(0x334760))(this, display);
+}
+
+void plasma::Node::SetCallback(int event_type, void(*function)(uint64_t), char a1, char a2)
+{
+	((void (*)(plasma::Widget*, int, uint64_t, void(*)(uint64_t), byte, byte))CWOffset(0xF8410))(this->widget1, event_type, this->field_B8, function, a1, a2);
+}
+
+plasma::Node* plasma::Node::CreateButton(plasma::Node* root_node, std::wstring* name, int button_type, std::wstring* text, IntVector2* pos, IntVector2* off)
+{
+	auto game = cube::GetGame();
+	plasma::Node* button_template;
+	switch (button_type) {
+		case 1: {
+			button_template = game->gui.button_node; // Normal Button
+			break;
+		}
+		case 2: {
+			button_template = game->gui.button_node_3; // Compact Button
+			break;
+		}
+		default: {
+			button_template = game->gui.button2_node; // Transparent
+			break;
+		}
+	};
+	plasma::D3D11Engine* engine = game->plasma_engine;
+	plasma::Node* node = engine->CreateNode(root_node, name);
+	node = button_template->CreateDeepCopy(node);
+	node->Translate(pos->x, pos->y, off->x, off->y);
+	node->SetText(text);
+	return node;
 }

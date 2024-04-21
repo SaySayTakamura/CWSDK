@@ -37,7 +37,7 @@ namespace plasma {
 
             // Only called once in GUI init, but here for documentation purposes
             plasma::Node* ctor(plasma::D3D11Engine* engine, plasma::Transformation* transformation, std::list<plasma::Node*>* nodes, plasma::Display* display, std::wstring* name);
-            
+
 
             void SetTransformation(plasma::Transformation* transformation);
             void SetDisplay(plasma::Display* display);
@@ -75,6 +75,10 @@ namespace plasma {
             void CW_334410(plasma::Widget* widget);
             void CW_335830();
             void CW_3356D0();
-        };
+
+            void SetCallback(int event_type, void(*function)(uint64_t), char a1, char a2);
+
+            static plasma::Node* CreateButton(plasma::Node* root_node, std::wstring* name, int button_type, std::wstring* text, IntVector2* pos, IntVector2* off);
+    };
 }
 static_assert(sizeof(plasma::Node) == 0xC8, "plasma::Node is not the correct size.");
