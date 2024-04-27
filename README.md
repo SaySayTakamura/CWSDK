@@ -4,6 +4,10 @@ Defines structures, functions, and callbacks for interacting with Cube World in 
 
 Mods produced with CWSDK are for use with the [Cube World Mod Launcher](https://github.com/ChrisMiuchiz/Cube-World-Mod-Launcher).
 
+Note: This branch is a fork of Nichiren(TheTrueOneShots) latest commit, we will be updating from now on with some enhancements that affect delevopers and players.
+
+The following sections will be updated for make it easier for beginners to start their modding journey.
+
  ## Getting started
  
 Although modding Cube World, even with CWSDK, is not for the faint of heart, CWSDK provides common-use functionality to assist development and cooperation of mods. All projects which use CWSDK should be compiled using Visual Studio and Clang.
