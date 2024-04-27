@@ -6,7 +6,7 @@ Mods produced with CWSDK are for use with the [Cube World Mod Launcher](https://
 
 Note: This branch is a fork of Nichiren(TheTrueOneShots) latest commit, we will be updating from now on with some enhancements that affect delevopers and players.
 
-The following sections will be updated for make it easier for beginners to start their modding journey.
+The following sections will be updated to make it easier for beginners to start their modding journey.
 
  ## Getting started
  
