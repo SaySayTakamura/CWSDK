@@ -12,7 +12,8 @@ void modhelper::Utils::Print(std::string format, ...)
 
 	auto wmsg = std::wstring((wchar_t*)msg);
 
-	if (HasGameLoaded() == true)
+	//In-Progress
+	/*if (HasGameLoaded() == true)
 	{
 		auto g = cube::GetGame();
 		g->PrintMessage(wmsg.c_str());
@@ -20,7 +21,12 @@ void modhelper::Utils::Print(std::string format, ...)
 	else
 	{
 		ShowMessage("-GAME IS NOT LOADED AT THIS MOMENT-");
-	}
+	}*/
+
+	//Note that this might cause issues.
+	//When calling this from Initialize() the game will crash withou ever showing any error.
+	auto g = cube::GetGame();
+	g->PrintMessage(wmsg.c_str());
 
 }
 

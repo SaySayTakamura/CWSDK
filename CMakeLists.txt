@@ -117,7 +117,9 @@ add_library (CWSDK
     "modhelper/CommandManager/CommandManager.h"
     "modhelper/CommandManager/CommandManager.cpp"
     "modhelper/Parser/Parser.h"
-    "modhelper/Parser/Parser.cpp")
+    "modhelper/Parser/Parser.cpp"
+    "modhelper/ModMetadata/ModMetadata.h"
+    "modhelper/ModMetadata/ModMetadata.cpp")
 target_link_libraries(CWSDK winmm.lib)
 target_include_directories (CWSDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_include_directories (CWSDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/CWSDK)
