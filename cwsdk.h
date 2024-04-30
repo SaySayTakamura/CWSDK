@@ -4,6 +4,7 @@
 //#define MODLOADER 1
 #define EXPORT extern "C" __declspec(dllexport) __declspec(noinline)
 
+//Default C++ Headers
 #include <cstdint>
 #include <dinput.h>
 #include <d3d11.h>
@@ -11,10 +12,13 @@
 #include <map>
 #include <vector>
 
+//IDA Software Types
 #include "IDA/types.h"
 
+//Cube Header File
 #include "cube/cube.h"
 
+//Common Header Files
 #include "common/BytesIO.h"
 #include "common/ColorRGB.h"
 #include "common/math.h"
@@ -24,6 +28,7 @@
 #include "common/Vector2.h"
 #include "common/Vector3.h"
 
+//Cube World Header Files, associated with lots of things from Blocks to the Worl Map
 #include "cube/AdaptionWidget.h"
 #include "cube/AI.h"
 #include "cube/BaseWidget.h"
@@ -81,6 +86,7 @@
 #include "cube/Zone.h"
 #include "cube/constants.h"
 
+//Graphical Related Headers
 #include "gfx/Chunk.h"
 #include "gfx/ChunkBuffer.h"
 #include "gfx/D3D11Graphics.h"
@@ -92,8 +98,11 @@
 #include "gfx/Renderer.h"
 #include "gfx/VertexBuffer.h"
 
+//Note: Will attempt on making a MSVC port of the CWSDK and Mods
+//Using CMAKE sucks TwT
 #include "msvc/_Thrd_t.h"
 
+//Plasma Engine Headers
 #include "plasma/Attribute.h"
 #include "plasma/ContinuousAttribute.h"
 #include "plasma/D3D11Engine.h"
@@ -115,6 +124,14 @@
 #include "plasma/Shape.h"
 #include "plasma/TextShape.h"
 
+//Mod Helper Headers
+#include "modhelper/Daytime/Daytime.h"
+#include "modhelper/Utils/Utils.h"
+#include <modhelper/ModMetadata/ModMetadata.h>
+
+
+
+//Steam Headers
 #include "steam/steam_api_common.h"
 
 void* CWBase();
@@ -144,6 +161,8 @@ class GenericMod {
             LowPriority = 3,
             VeryLowPriority = 4
         };
+
+        modhelper::ModMD::ModMetadata mod_metadata;
 
         // Used for registering to mod callbacks. The callbacks are defined in the CWSDK.
         virtual void Initialize() {}
