@@ -59,6 +59,40 @@ class Item {
             WindSpirit = 131,
         };
 
+        enum CategoryType : char {
+            Consumable = 1,
+            Formula = 2,
+            Weapon = 3,
+            Armor1 = 4,
+            Armor2 = 5,
+            Armor3 = 6,
+            Armor4 = 7,
+            Amulet = 8,
+            Ring = 9,
+            UnknownVoxel = 10,
+            Collectible = 11,
+            Coin = 12,
+            PlatinumCoin = 13,
+            ManaCube = 14,
+            Leftover = 15,
+            Beak = 16,
+            Painting = 17,
+            Vase = 18,
+            Candle = 19,
+            PetCage = 20,
+            PetFood = 21,
+            Quest = 22,
+            Special = 23,
+            Lamp = 24,
+            EyePatch = 25,
+            Building = 26,
+            Potion = 27,
+            Glyph = 28,
+            Loot = 29,
+            ManaSpirit = 30,
+            Unknown = 31,
+        };
+
         char category;
         //3 bytes padding
         int id;
