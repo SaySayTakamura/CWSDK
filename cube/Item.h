@@ -48,7 +48,7 @@ class Item {
             Fiber = 37,
             Scale = 38,
             Web = 39,
-            Shadow = 30,
+            Shadow = 40,
             Dark = 41,
             Demon = 42,
             Fire = 43,
