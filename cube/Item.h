@@ -92,7 +92,7 @@ class Item {
             // OnGroundLoot = 30,
             Loot = 31,
             ManaSpirit = 32,
-            Unknown = 33,
+            Whistle = 33,
         };
 
         char category;
