@@ -162,7 +162,7 @@ class GenericMod {
             VeryLowPriority = 4
         };
 
-        modhelper::ModMD::ModMetadata mod_metadata;
+        modhelper::ModMetadata mod_metadata;
 
         // Used for registering to mod callbacks. The callbacks are defined in the CWSDK.
         virtual void Initialize() {}
