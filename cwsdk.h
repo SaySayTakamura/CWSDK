@@ -164,6 +164,8 @@ class GenericMod {
 
         modhelper::ModMetadata mod_metadata;
 
+        virtual modhelper::ModMetadata GetMD() { return mod_metadata; }
+
         // Used for registering to mod callbacks. The callbacks are defined in the CWSDK.
         virtual void Initialize() {}
 
