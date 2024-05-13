@@ -1,6 +1,4 @@
 #include "Daytime.h"
-#include "Daytime.h"
-#include "Daytime.h"
 
 void modhelper::Daytime::DaytimeManager::SetDayTime(Daytimes dtm)
 {

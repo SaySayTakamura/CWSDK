@@ -127,7 +127,9 @@
 //Mod Helper Headers
 #include "modhelper/Daytime/Daytime.h"
 #include "modhelper/Utils/Utils.h"
-#include <modhelper/ModMetadata/ModMetadata.h>
+#include "modhelper/Items/ModItem.h"
+#include "modhelper/Items/ItemBuilder.h"
+#include "modhelper/ModMetadata/ModMetadata.h"
 
 
 
