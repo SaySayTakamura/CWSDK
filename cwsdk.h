@@ -130,6 +130,7 @@
 #include "modhelper/Items/ModItem.h"
 #include "modhelper/Items/ItemBuilder.h"
 #include "modhelper/ModMetadata/ModMetadata.h"
+#include "modhelper/SpriteLoader/SpriteLoader.h"
 
 
 
