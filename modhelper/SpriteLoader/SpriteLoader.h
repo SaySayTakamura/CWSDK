@@ -7,6 +7,8 @@ namespace modhelper {
 	private:
 		static std::map<std::wstring, cube::Sprite*> loaded_sprites;
 	public:
+		SpriteLoader() {}
+
 		static cube::Sprite* LoadModel(modhelper::ModMetadata* mod_md, cube::SpriteManager* sprite_manager, std::wstring model_name, std::string file_path) {
 			if (IsSpriteLoaded(model_name)) {
 				return nullptr;
@@ -39,4 +41,7 @@ namespace modhelper {
 			return search->second;
 		}
 	};
+
+	//Temporary name, change it as you please.
+	static SpriteLoader GLOBAL_SPRITE_LOADER;
 }
