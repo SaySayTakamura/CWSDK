@@ -22,7 +22,9 @@ namespace modhelper {
 			else
 			{
 				item_vector.push_back(item);
+				return true;
 			}
+			return false;
 		}
 
 		bool Exists(std::wstring ItemName)

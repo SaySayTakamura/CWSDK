@@ -128,7 +128,8 @@
 #include "modhelper/Daytime/Daytime.h"
 #include "modhelper/Utils/Utils.h"
 #include "modhelper/Items/ModItem.h"
-#include "modhelper/Items/ItemBuilder.h"
+#include "modhelper/Items/ItemData.h"
+#include "modhelper/Items/ItemManager.h"
 #include "modhelper/ModMetadata/ModMetadata.h"
 #include "modhelper/SpriteLoader/SpriteLoader.h"
 
