@@ -7,23 +7,24 @@ namespace modhelper {
 	public:
 
 		//Constructor
-		ModItem();
+		ModItem() {};
 
 		//Used when we create the item (like doing the initialize function the mods)
-		virtual void OnCreate() {}
+		virtual void OnCreate() {};
 
 		//Whenever the PLAYER uses this item, this function is called
-		virtual void OnUse() {}
+		virtual void OnUse() {};
 
 		//Whenever we Spawn this item into the world this function is called
-		virtual void OnSpawn(){}
+		virtual void OnSpawn() {};
 
 		//Whenever this item becomes a loot and its collected by the player this function is called.
-		virtual void OnLoot() {}
+		virtual void OnLoot() {};
 
 		//Whenver the item is despawned this function is called.
-		virtual void OnDestroy() {}
+		virtual void OnDestroy() {};
 
-		virtual cube::Sprite* GetModel(cube::SpriteManager*, cube::Item* item) { return nullptr; }
+		// Return the sprite to be shown on screen.
+		virtual cube::Sprite* GetModel(cube::SpriteManager*, cube::Item* item) { return nullptr; };
 	};
 }
