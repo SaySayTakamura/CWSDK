@@ -76,10 +76,8 @@ namespace modhelper {
 			}
 			return nullptr;
 		}
-	};
 
-	//Temporary name, change it as you please.
-	static ItemManager GLOBAL_ITEM_MANAGER;
+	};
 
 	/*class ItemBuilder {
 	public:

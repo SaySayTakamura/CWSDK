@@ -25,6 +25,6 @@ namespace modhelper {
 		virtual void OnDestroy() {};
 
 		// Return the sprite to be shown on screen.
-		virtual cube::Sprite* GetModel(cube::SpriteManager*, cube::Item* item) { return nullptr; };
+		virtual cube::Sprite* GetModel(modhelper::SpriteLoader*, cube::Item* item) { return nullptr; };
 	};
 }

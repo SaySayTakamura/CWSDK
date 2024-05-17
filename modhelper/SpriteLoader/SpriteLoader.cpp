@@ -1,5 +1,5 @@
-#include "SpriteLoader.h"
+//#include "SpriteLoader.h"
 
-namespace modhelper {
-	std::map<std::wstring, cube::Sprite*>  SpriteLoader::loaded_sprites = {};
-}
+//namespace modhelper {
+	//std::map<std::wstring, cube::Sprite*>  SpriteLoader::loaded_sprites = {};
+//}

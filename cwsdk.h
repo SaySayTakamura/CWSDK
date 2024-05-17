@@ -127,13 +127,11 @@
 //Mod Helper Headers
 #include "modhelper/Daytime/Daytime.h"
 #include "modhelper/Utils/Utils.h"
+#include "modhelper/ModMetadata/ModMetadata.h"
+#include "modhelper/SpriteLoader/SpriteLoader.h"
 #include "modhelper/Items/ModItem.h"
 #include "modhelper/Items/ItemData.h"
 #include "modhelper/Items/ItemManager.h"
-#include "modhelper/ModMetadata/ModMetadata.h"
-#include "modhelper/SpriteLoader/SpriteLoader.h"
-
-
 
 //Steam Headers
 #include "steam/steam_api_common.h"
@@ -167,6 +165,8 @@ class GenericMod {
         };
 
         modhelper::ModMetadata mod_metadata;
+        modhelper::SpriteLoader sprite_loader;
+        modhelper::ItemManager item_manager;
 
         // Used for registering to mod callbacks. The callbacks are defined in the CWSDK.
         virtual void Initialize() {}

@@ -5,11 +5,11 @@
 namespace modhelper {
 	class SpriteLoader {
 	private:
-		static std::map<std::wstring, cube::Sprite*> loaded_sprites;
+		std::map<std::wstring, cube::Sprite*> loaded_sprites;
 	public:
 		SpriteLoader() {}
 
-		static cube::Sprite* LoadModel(modhelper::ModMetadata* mod_md, cube::SpriteManager* sprite_manager, std::wstring model_name, std::string file_path) {
+		cube::Sprite* LoadModel(modhelper::ModMetadata* mod_md, cube::SpriteManager* sprite_manager, std::wstring model_name, std::string file_path) {
 			if (IsSpriteLoaded(model_name)) {
 				return nullptr;
 			}
@@ -23,7 +23,7 @@ namespace modhelper {
 			return sprite;
 		}
 
-		static bool IsSpriteLoaded(std::wstring model_name) {
+		bool IsSpriteLoaded(std::wstring model_name) {
 			auto search = loaded_sprites.find(model_name);
 			if (search != loaded_sprites.end()) {
 				return true;
@@ -31,17 +31,14 @@ namespace modhelper {
 			return false;
 		}
 
-		static std::string GetSpriteFilePath(modhelper::ModMetadata* mod_md, std::string file_path) {
-			return std::string("Mods/") + mod_md->GetName() + "/sprites/" + file_path; // path: mods/mod_id/sprites/file_path.cub
+		std::string GetSpriteFilePath(modhelper::ModMetadata* mod_md, std::string file_path) {
+			return std::string("Mods/") + std::string(mod_md->GetName()) + std::string("/sprites/") + file_path;  // path: mods/mod_id/sprites/file_path.cub
 		}
 
-		static cube::Sprite* GetSprite(std::wstring model_name) {
+		cube::Sprite* GetSprite(std::wstring model_name) {
 			if (!IsSpriteLoaded(model_name)) return nullptr;
 			auto search = loaded_sprites.find(model_name);
 			return search->second;
 		}
 	};
-
-	//Temporary name, change it as you please.
-	static SpriteLoader GLOBAL_SPRITE_LOADER;
 }
