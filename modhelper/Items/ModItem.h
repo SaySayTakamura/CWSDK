@@ -26,5 +26,8 @@ namespace modhelper {
 
 		// Return the sprite to be shown on screen.
 		virtual cube::Sprite* GetModel(modhelper::SpriteLoader*, cube::Item* item) { return nullptr; };
+
+		// Return the time to consume a consumable item.
+		virtual uint64_t GetConsumableUseTime(cube::Item* item) { return 0LL; };
 	};
 }
