@@ -29,5 +29,11 @@ namespace modhelper {
 
 		// Return the time to consume a consumable item.
 		virtual uint64_t GetConsumableUseTime(cube::Item* item) { return 0LL; };
+
+		// Return the name displayed in game.
+		virtual std::wstring* GetDisplayName(cube::Item* item) { return nullptr; }
+
+		// Return the displayed name color.
+		virtual FloatRGBA* GetNameColor(cube::Item* item) { return nullptr; }
 	};
 }
