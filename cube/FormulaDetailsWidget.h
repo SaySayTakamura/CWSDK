@@ -4,6 +4,7 @@
 #include "../plasma/Node.h"
 #include "Item.h"
 #include "../common/Vector3.h"
+#include "ItemStack.h"
 namespace cube {
 class Game;
 class FormulaDetailsWidget : public cube::BaseWidget {
@@ -13,10 +14,12 @@ class FormulaDetailsWidget : public cube::BaseWidget {
 		cube::Item result_item;
 		int workstation_required;
 		int field_29C;
-		__int64 field_2A0;
-		__int64 field_2A8;
-		__int64 field_2B0;
-		__int64 field_2B8;
+		std::vector<cube::ItemStack> required_items;
+		//__int64 field_2A0;
+		//__int64 field_2A8;
+		//__int64 field_2B0;
+		int tab_id;
+		int item_id;
 		cube::Game* game;
 		plasma::Node* itemshadow;
 		plasma::Node* craftbutton;

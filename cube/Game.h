@@ -44,6 +44,31 @@ namespace cube {
                     std::map<uint32_t, std::wstring> key_full_names;
                     std::map<uint32_t, std::wstring> key_abbreviated_names;
             };
+            enum ControlStateID : char {
+                normal_attack = 0x0,
+                special_attack = 0x1,
+                class_skill = 0x2,
+                ultimate_skill = 0x3,
+                use_quick_item = 0x4,
+                move_forward = 0x5,
+                move_backward = 0x6,
+                move_left = 0x7,
+                move_right = 0x8,
+                jump = 0x9,
+                dodge = 0xA,
+                use_interact = 0xB,
+                lamp = 0xC,
+                walk = 0xD,
+                call_pet = 0xE,
+                world_map = 0xF,
+                ring_menu = 0x10,
+                inventory = 0x11,
+                crafting_menu = 0x12,
+                system_menu = 0x13,
+                multiplayer_menu = 0x14,
+                zoom_in,
+                zoom_out,
+            };
             enum SoundEffect : u32
             {
                 sound_hit = 0x0,

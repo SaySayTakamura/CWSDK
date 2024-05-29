@@ -109,6 +109,10 @@ float cube::Item::GetPowerWithoutSpirits(cube::Creature* creature)
 	return ((float (*)(cube::Item*, cube::Creature*))CWOffset(0x108F20))(this, creature);
 }
 
+bool cube::Item::IsItemEqual(cube::Item* item) {
+	return ((bool (*)(cube::Item*, cube::Item*))CWOffset(0x4DF60))(this, item);
+}
+
 bool cube::Item::IsValidEquipmentForCreature(cube::Creature* creature, int itemCategory)
 {
 	if (this->category != itemCategory)

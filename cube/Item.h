@@ -126,6 +126,8 @@ class Item {
         float GetPowerOfSpirits(cube::Creature* creature);
         float GetPowerWithoutSpirits(cube::Creature* creature);
 
+        bool IsItemEqual(cube::Item* item);
+
         int GetArtifactType();
         int GetEffectiveRarity(IntVector2* region);
         int GetBuyingPrice();
