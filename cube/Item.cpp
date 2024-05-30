@@ -4,10 +4,18 @@
 cube::Item::Item(){
 	ctor();
 }
+
 cube::Item::Item(char category, int id) {
 	ctor();
-    this->category = category;
-    this->id = id;
+	this->category = category;
+	this->id = id;
+}
+
+cube::Item::Item(char category, int id, char rarity) {
+	ctor();
+	this->category = category;
+	this->id = id;
+	this->rarity = rarity;
 }
 
 cube::Item* cube::Item::ctor()

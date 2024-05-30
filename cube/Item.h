@@ -110,6 +110,7 @@ class Item {
 
         Item();
         Item(char category, int id);
+        Item(char category, int id, char rarity);
         cube::Item* ctor();
 
         void Copy(cube::Item* src);
