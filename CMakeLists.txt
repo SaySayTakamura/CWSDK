@@ -119,7 +119,7 @@ add_library (CWSDK
     "modhelper/Parser/Parser.h"
     "modhelper/Parser/Parser.cpp"
     "modhelper/ModMetadata/ModMetadata.h"
-    "modhelper/ModMetadata/ModMetadata.cpp"  "modhelper/Items/ModItem.h"  "modhelper/Items/ItemData.h"  "modhelper/SpriteLoader/SpriteLoader.h" "modhelper/Items/ItemBuilder.cpp" "modhelper/SpriteLoader/SpriteLoader.cpp" "modhelper/Items/ItemManager.h")
+    "modhelper/ModMetadata/ModMetadata.cpp"  "modhelper/Items/ModItem.h"  "modhelper/Items/ItemData.h"  "modhelper/SpriteLoader/SpriteLoader.h" "modhelper/Items/ItemBuilder.cpp" "modhelper/SpriteLoader/SpriteLoader.cpp" "modhelper/Items/ItemManager.h" "modhelper/CraftingManager/CraftingManager.h" "modhelper/CraftingManager/CraftingManager.cpp")
 target_link_libraries(CWSDK winmm.lib)
 target_include_directories (CWSDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_include_directories (CWSDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/CWSDK)

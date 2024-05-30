@@ -132,6 +132,7 @@
 #include "modhelper/Items/ModItem.h"
 #include "modhelper/Items/ItemData.h"
 #include "modhelper/Items/ItemManager.h"
+#include "modhelper/CraftingManager/CraftingManager.h"
 
 //Steam Headers
 #include "steam/steam_api_common.h"
@@ -167,6 +168,7 @@ class GenericMod {
         modhelper::ModMetadata mod_metadata;
         modhelper::SpriteLoader sprite_loader;
         modhelper::ItemManager item_manager;
+        modhelper::CraftingManager crafting_manager;
 
         // Used for registering to mod callbacks. The callbacks are defined in the CWSDK.
         virtual void Initialize() {}
@@ -266,6 +268,9 @@ class GenericMod {
         
         //Priority OnGetItemRarityModifierPriority = NormalPriority;
         //virtual void OnGetItemRarityModifier(cube::Item* item, cube::Creature* creature, int spirits, float* modifier) {}
+
+        Priority OnCraftInventoryUpdatePriority = NormalPriority;
+        virtual void OnCraftInventoryUpdate(cube::Game* game, cube::Creature* creature, std::vector<std::vector<cube::ItemStack>>* itemVector) {}
 
         #include "VtablePadding.h"
 };
