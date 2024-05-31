@@ -35,5 +35,11 @@ namespace modhelper {
 
 		// Return the displayed name color.
 		virtual FloatRGBA* GetNameColor(cube::Item* item) { return nullptr; }
-	};
+
+		// Return the selling price of the item.
+		virtual int GetSellingPrice(cube::Item* item) { return 0; }
+
+		// Return the buying price of the item.
+		virtual int GetBuyingPrice(cube::Item* item) { return 0; }
+ 	};
 }
