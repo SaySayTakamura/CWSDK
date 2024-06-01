@@ -21,6 +21,7 @@ namespace modhelper
 		std::map<std::string, bool> old_control_states = {};
 	private:
 		std::map<std::string, KeybindValue> keybinds = {};
+		std::map<std::string, std::wstring> keybind_display_names = {};
 		const std::string CONTROL_FILE_PATH = "controls.cfg";
 	public:
 		KeybindManager() {};
@@ -29,7 +30,11 @@ namespace modhelper
 			return metadata->GetName() + std::string("::") + o_name;
 		}
 
-		KeybindValue* GetOrCreateKeybind(modhelper::ModMetadata* metadata, std::string o_name, int default_id, DeviceIds default_device_id) {
+		std::wstring* GetKeybindDisplayName(std::string name) {
+			return &this->keybind_display_names.at(name);
+		}
+
+		KeybindValue* GetOrCreateKeybind(modhelper::ModMetadata* metadata, std::string o_name, std::wstring display_name, int default_id, DeviceIds default_device_id) {
 			std::ifstream file(CONTROL_FILE_PATH);
 			std::string line;
 			std::string buttonName;
@@ -51,12 +56,13 @@ namespace modhelper
 
 				if (found) {
 					this->keybinds.insert_or_assign(name, std::make_pair(id, (DeviceIds)device_id));
+					this->keybind_display_names.insert_or_assign(name, display_name);
 					this->control_states.insert_or_assign(name, false);
 					this->old_control_states.insert_or_assign(name, false);
 					return &this->keybinds.at(name);
 				}
 				if (CreateKeybindInFile(name, default_id, default_device_id)) {
-					return GetOrCreateKeybind(metadata, o_name, default_id, default_device_id);
+					return GetOrCreateKeybind(metadata, o_name, display_name, default_id, default_device_id);
 				}
 				return nullptr;
 			}
