@@ -133,6 +133,7 @@
 #include "modhelper/Items/ItemData.h"
 #include "modhelper/Items/ItemManager.h"
 #include "modhelper/CraftingManager/CraftingManager.h"
+#include "modhelper/KeybindManager/KeybindManager.h"
 
 //Steam Headers
 #include "steam/steam_api_common.h"
@@ -169,6 +170,7 @@ class GenericMod {
         modhelper::SpriteLoader sprite_loader;
         modhelper::ItemManager item_manager;
         modhelper::CraftingManager crafting_manager;
+        modhelper::KeybindManager keybind_manager;
 
         // Used for registering to mod callbacks. The callbacks are defined in the CWSDK.
         virtual void Initialize() {}
