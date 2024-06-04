@@ -7,20 +7,14 @@
 
 namespace modhelper
 {
-	// This class is using as key ids the ones from win32
-	// More info on this microsoft page:
-	// https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
 	class KeybindManager {
 	public:
-		enum DeviceIds : int {
-			Keyboard = 0,
-			Mouse = 1,
-		};
-		using KeybindValue = std::pair<int, DeviceIds>;
+		using KeybindValue = std::pair<int, int>;
 		std::map<std::string, bool> control_states = {};
 		std::map<std::string, bool> old_control_states = {};
 	private:
 		std::map<std::string, KeybindValue> keybinds = {};
+		std::map<std::string, KeybindValue> default_keybinds = {};
 		std::map<std::string, std::wstring> keybind_display_names = {};
 		const std::string CONTROL_FILE_PATH = "controls.cfg";
 	public:
@@ -34,7 +28,7 @@ namespace modhelper
 			return &this->keybind_display_names.at(name);
 		}
 
-		KeybindValue* GetOrCreateKeybind(modhelper::ModMetadata* metadata, std::string o_name, std::wstring display_name, int default_id, DeviceIds default_device_id) {
+		KeybindValue* GetOrCreateKeybind(modhelper::ModMetadata* metadata, std::string o_name, std::wstring display_name, int default_id, int default_device_id) {
 			std::ifstream file(CONTROL_FILE_PATH);
 			std::string line;
 			std::string buttonName;
@@ -55,7 +49,8 @@ namespace modhelper
 				file.close();
 
 				if (found) {
-					this->keybinds.insert_or_assign(name, std::make_pair(id, (DeviceIds)device_id));
+					this->keybinds.insert_or_assign(name, std::make_pair(id, device_id));
+					this->default_keybinds.insert_or_assign(name, std::make_pair(default_id, default_device_id));
 					this->keybind_display_names.insert_or_assign(name, display_name);
 					this->control_states.insert_or_assign(name, false);
 					this->old_control_states.insert_or_assign(name, false);
@@ -71,7 +66,7 @@ namespace modhelper
 			}
 		}
 
-		bool CreateKeybindInFile(std::string name, int default_id, DeviceIds default_device_id) {
+		bool CreateKeybindInFile(std::string name, int default_id, int default_device_id) {
 			std::ofstream file;
 			file.open(CONTROL_FILE_PATH, std::ios::app);
 
@@ -85,6 +80,10 @@ namespace modhelper
 
 		std::map<std::string, KeybindValue>* GetKeybinds() {
 			return &this->keybinds;
+		}
+
+		std::map<std::string, KeybindValue>* GetDefaultKeybinds() {
+			return &this->default_keybinds;
 		}
 
 		bool isKeyPressed(modhelper::ModMetadata* metadata, std::string o_name) {
