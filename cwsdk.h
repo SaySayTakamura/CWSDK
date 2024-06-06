@@ -134,6 +134,7 @@
 #include "modhelper/Items/ItemManager.h"
 #include "modhelper/CraftingManager/CraftingManager.h"
 #include "modhelper/KeybindManager/KeybindManager.h"
+#include "modhelper/Widget/ModBaseWidget.h"
 
 //Steam Headers
 #include "steam/steam_api_common.h"

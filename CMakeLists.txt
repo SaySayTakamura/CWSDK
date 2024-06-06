@@ -127,7 +127,7 @@ add_library (CWSDK
     "modhelper/SpriteLoader/SpriteLoader.cpp" 
     "modhelper/Items/ItemManager.h" 
     "modhelper/CraftingManager/CraftingManager.h" 
-    "modhelper/CraftingManager/CraftingManager.cpp")
+    "modhelper/CraftingManager/CraftingManager.cpp" "modhelper/Widget/ModBaseWidget.cpp")
 target_link_libraries(CWSDK winmm.lib)
 target_include_directories (CWSDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_include_directories (CWSDK PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/CWSDK)
