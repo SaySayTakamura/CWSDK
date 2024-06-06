@@ -9,7 +9,7 @@ namespace modhelper {
 		std::vector<modhelper::ItemData*> item_vector; //Contains all the items registered.
 
 	public:
-		ItemManager() {}
+		ItemManager() { item_vector = {}; }
 
 		//Registers the Item to the Manager
 		bool Register(ItemData* item)

@@ -132,6 +132,7 @@
 #include "modhelper/Items/ModItem.h"
 #include "modhelper/Items/ItemData.h"
 #include "modhelper/Items/ItemManager.h"
+#include "modhelper/Items/ItemRequest.h"
 #include "modhelper/CraftingManager/CraftingManager.h"
 #include "modhelper/KeybindManager/KeybindManager.h"
 #include "modhelper/Widget/ModBaseWidget.h"
